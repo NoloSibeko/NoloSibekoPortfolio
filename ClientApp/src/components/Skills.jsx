@@ -144,7 +144,7 @@ const Skills = ({ skills }) => {
             className="skills-category"
             initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, margin: "-20px" }}
+            viewport={{ once: true, margin: "0px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <div className="cat-title" style={{ display: 'flex', alignItems: 'center' }}>

@@ -129,7 +129,7 @@ const Experience = ({ experience, contributions }) => {
                   <div className="target-bracket tb-br"></div>
 
                   <div className="exp-header">
-                      <h3 className="exp-role" style={{ color: 'var(--accent-color)' }}>PROJECT_0{index + 1}</h3>
+                      <h3 className="exp-role" style={{ color: 'var(--accent-color)' }}>{contrib.title || `PROJECT_0${index + 1}`}</h3>
                       <div className="project-links">
                           {contrib.links && contrib.links.map((link, i) => (
                               <MagneticButton key={i} href={link} target="_blank" rel="noopener noreferrer" className="project-link">

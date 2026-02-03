@@ -3,7 +3,7 @@ export const portfolioData = {
       name: "Bonolo Sibeko",
       email: "sibekonolo@gmail.com",
       phone: "062 091 2838",
-      description: "Full-stack developer with hands-on experience across backend and frontend. | Strong exposure to real-world business systems, comfortable working on production-aligned features. | Experience collaborating in structured development teams with a fast learner, delivery-focused mindset.",
+      description: "Motivated Software Development graduate with a strong foundation in Computer and Information Sciences from Varsity College. Currently a Software Development Learner at Singular Systems with hands-on experience in the full IT stack, specializing in .NET and PHP development. Proven ability to build, maintain, and enhance web-based systems while ensuring robust database design and system integration. I bring a strong innovative mindset, adaptability, and solid networking skills to transform complex ideas into practical solutions. Committed to continuous learning and contributing to dynamic technical environments through effective debugging, version control, and collaborative development.",
       profileImageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop",
       socials: {
         linkedin: "https://linkedin.com/in/bonolo-sibeko",
