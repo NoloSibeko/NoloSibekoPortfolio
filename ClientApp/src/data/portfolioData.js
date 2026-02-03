@@ -1,11 +1,13 @@
+import profileImg from '../assets/profile.jpg';
+
 export const portfolioData = {
     profile: {
       name: "Bonolo Sibeko",
       email: "sibekonolo@gmail.com",
       phone: "062 091 2838",
       role: "Software Developer",
-    profileImageUrl: "/profile.jpg",
-    description: "Motivated Software Developer with a Diploma in Information Technology and practical experience in full-stack development. | Skilled in C#, ASP.NET Core, React, and SQL Server, with a strong focus on building scalable web applications and efficient database solutions. | Passionate about solving complex problems and continuously learning new technologies to deliver high-quality software.",
+      profileImageUrl: profileImg,
+      description: "Motivated Software Developer with a Diploma in Information Technology and practical experience in full-stack development. | Skilled in C#, ASP.NET Core, React, and SQL Server, with a strong focus on building scalable web applications and efficient database solutions. | Passionate about solving complex problems and continuously learning new technologies to deliver high-quality software.",
       socials: {
         linkedin: "https://www.linkedin.com/in/bonolo-sibeko-b92663251",
         github: "https://github.com/NoloSibeko",
