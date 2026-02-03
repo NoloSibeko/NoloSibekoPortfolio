@@ -150,9 +150,17 @@ const Experience = ({ experience, contributions }) => {
                           />
                           </div>
                       )}
-                      <p style={{ marginTop: '1rem', lineHeight: '1.6', color: '#ccc' }}>
-                          {contrib.description}
-                      </p>
+                      <div style={{ marginTop: '1rem', color: '#ccc' }}>
+                          {contrib.description.includes('|') ? (
+                              <ul style={{ paddingLeft: '1.2rem', margin: 0, lineHeight: '1.6' }}>
+                                  {contrib.description.split('|').map((item, i) => (
+                                      <li key={i} style={{ marginBottom: '0.5rem' }}>{item.trim()}</li>
+                                  ))}
+                              </ul>
+                          ) : (
+                              <p style={{ lineHeight: '1.6' }}>{contrib.description}</p>
+                          )}
+                      </div>
                   </div>
                 </Tilt>
              </motion.div>

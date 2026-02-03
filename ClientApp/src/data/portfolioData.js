@@ -32,13 +32,32 @@ export const portfolioData = {
       }
     ],
     contributions: [
-      { description: "Software Developer responsible for designing, developing, and maintaining application features using .NET and PHP", projectImageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop" },
-      { description: "Developed core backend functionality for a self-service kiosk system, including secure user workflows, data processing, and database integration", projectImageUrl: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop" },
-      { description: "Built and enhanced a leave management system supporting automated leave requests, approval workflows, role-based access control, and audit logging both front and backend", projectImageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" },
-      { description: "Implemented tax compliance features, including rule-driven validation, statutory tax calculations, and data integrity checks aligned with regulatory requirements", projectImageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" },
-      { description: "Designed and optimized database schemas, queries, and transactions to ensure performance and reliability", projectImageUrl: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&w=800&q=80" },
-      { description: "Developed and integrated RESTful APIs to support system interoperability and business processes. Performed debugging, performance tuning, and system enhancements to improve stability, scalability, and maintainability", projectImageUrl: "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&w=800&q=80" },
-      { description: "Notable projects: https://academy.connecthr.co.za and https://www.connecthr.co.za/ (Live)", links: ["https://academy.connecthr.co.za", "https://www.connecthr.co.za/"], projectImageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&w=800&q=80" }
+      { 
+        title: "HR & Payroll Systems",
+        description: "Implemented payroll-related features including PAYE annualisation and YTD calculations | Designed and validated SARS-aligned payslip data structures | Built backend logic to ensure data accuracy and compliance", 
+        projectImageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" 
+      },
+      { 
+        title: "Leave Management System",
+        description: "Developed leave workflows including applications, approvals, balances, and role-based access | Integrated frontend interfaces with backend APIs | Ensured data integrity across user actions and approval states", 
+        projectImageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
+      },
+      { 
+        title: "Learner & Program Management",
+        description: "Worked on learner enrollment, program stages, budgeting, and tracking features | Built administrative tools for managing program data | Supported reporting and operational visibility", 
+        projectImageUrl: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop" 
+      },
+      { 
+        title: "Kiosk-Based Systems",
+        description: "Contributed to controlled-access systems with defined user flows | Focused on stability, validation, and operational correctness", 
+        projectImageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop" 
+      },
+      { 
+        title: "Live Projects",
+        description: "Notable projects: https://academy.connecthr.co.za and https://www.connecthr.co.za/ (Live)", 
+        links: ["https://academy.connecthr.co.za", "https://www.connecthr.co.za/"], 
+        projectImageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&w=800&q=80" 
+      }
     ],
     skills: [
       // Languages
