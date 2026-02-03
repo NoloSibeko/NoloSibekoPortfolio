@@ -176,8 +176,26 @@ h1, h2, h3 {
   
   /* Hide System Log and HUD on mobile to save space */
   .system-log, 
-  .game-hud-container {
+  .game-hud {
       display: none !important;
+  }
+  
+  .section-title {
+      font-size: clamp(2rem, 10vw, 3rem); /* Smaller on mobile */
+      margin-bottom: 2rem;
+  }
+
+  .experience-section,
+  .skills-section,
+  .achievements-section {
+      padding: 3rem 1rem; /* Reduced padding */
+  }
+
+  .experience-container {
+      margin-left: 0;
+      padding-left: 1rem;
+      border-left-width: 1px;
+      width: auto; /* Prevent overflow */
   }
 }
 
@@ -243,7 +261,7 @@ h1, h2, h3 {
   border-left: 2px solid #222;
   margin-left: 1rem;
   padding-left: 2rem;
-  width: 100%; /* Ensure container takes full width */
+  /* width: 100%; Removed to prevent overflow */
 }
 
 .experience-grid {
