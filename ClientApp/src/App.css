@@ -343,6 +343,12 @@ h1, h2, h3 {
   align-items: center;
   font-size: 1.5rem; /* Increased from inherited size */
   text-shadow: 0 0 5px rgba(255, 0, 60, 0.5); /* Added glow for visibility */
+  position: sticky;
+  top: 0;
+  background: var(--bg-color); /* Ensure background covers content behind */
+  z-index: 20;
+  padding: 10px 0; /* Add some padding */
+  border-bottom: 1px solid rgba(255, 0, 60, 0.2); /* Optional: separator */
 }
 
 .skills-cloud {
