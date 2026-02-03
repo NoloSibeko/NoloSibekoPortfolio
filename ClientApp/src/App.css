@@ -117,13 +117,13 @@ h1, h2, h3 {
 }
 
 .hero-description-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 3rem;
   text-align: center;
-  justify-items: center;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   line-height: 1.6;
@@ -132,7 +132,7 @@ h1, h2, h3 {
 
 @media (max-width: 768px) {
   .hero-description-container {
-    grid-template-columns: 1fr;
+    max-width: 90%;
   }
 }
 

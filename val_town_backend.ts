@@ -15,7 +15,7 @@ export default async function(req: Request): Promise<Response> {
       name: "Bonolo Sibeko",
       email: "sibekonolo@gmail.com",
       phone: "062 091 2838",
-      description: "I am a Computer and Information Sciences graduate from Varsity College, having completed my third year in 2024, and I am currently a software development learner at Singular Systems. Over the past year, I have gained hands-on experience across the IT stack, with a strong focus on .NET and PHP development, building, maintaining, and enhancing web-based systems.\n\nMy exposure spans software development, database design, debugging, system integration, and version control, alongside adapting to real-world development workflows. With a strong innovative mindset and solid networking skills, I excel at transforming ideas into practical solutions while learning and adapting quickly in dynamic technical environments.",
+      description: "Motivated Software Development graduate with a strong foundation in Computer and Information Sciences from Varsity College. Currently a Software Development Learner at Singular Systems with hands-on experience in the full IT stack, specializing in .NET and PHP development. Proven ability to build, maintain, and enhance web-based systems while ensuring robust database design and system integration. I bring a strong innovative mindset, adaptability, and solid networking skills to transform complex ideas into practical solutions. Committed to continuous learning and contributing to dynamic technical environments through effective debugging, version control, and collaborative development.",
       profileImageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop"
     },
     education: [
