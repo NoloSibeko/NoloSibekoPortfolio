@@ -159,28 +159,16 @@ h1, h2, h3 {
 /* Profile Image Styling */
 .profile-frame {
     position: relative;
-    width: 250px;
-    height: 300px;
-    /* Cyber-shape: Angled corners */
-    clip-path: polygon(
-        20% 0%, 
-        100% 0%, 
-        100% 85%, 
-        80% 100%, 
-        0% 100%, 
-        0% 15%
-    );
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    /* Removed grayscale and background effects */
-}
-
-/* Glow border simulation - Removed */
-.profile-frame::before {
-    display: none;
+    width: 280px;
+    height: 350px;
+    transition: all 0.5s ease;
+    /* Seamless blending: Fade out the bottom */
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
 .profile-frame:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px);
 }
 
 .profile-img {
@@ -189,32 +177,19 @@ h1, h2, h3 {
     object-fit: cover;
     object-position: center top;
     display: block;
+    /* Adjust brightness to match dark theme */
+    filter: brightness(0.9) contrast(1.1) grayscale(0.2);
+    transition: filter 0.5s ease;
 }
 
-.profile-overlay {
+.profile-frame:hover .profile-img {
+    filter: brightness(1) contrast(1.1) grayscale(0);
+}
+
+/* Decorative Corners - Removed per request */
+.profile-corner {
     display: none;
 }
-
-.profile-frame:hover .profile-overlay {
-    opacity: 0.3;
-}
-
-/* Decorative Corners */
-.profile-corner {
-    position: absolute;
-    background: var(--primary-color);
-    z-index: 10;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 10px var(--primary-color);
-}
-
-.pc-tl { top: 0; left: 20%; width: 40px; height: 3px; transform-origin: left; transform: rotate(-37deg) translate(-12px, 8px); } 
-/* Adjusted for clip-path visual. Let's stick to simpler corner markers */
-/* Reset corners to simple squares/lines */
-.pc-tl { top: 15px; left: 5px; width: 2px; height: 30px; transform: none; background: transparent; border-left: 2px solid var(--primary-color); }
-.pc-tr { top: 0px; right: 0px; width: 50px; height: 2px; transform: none; }
-.pc-bl { bottom: 0px; left: 0px; width: 50px; height: 2px; transform: none; }
-.pc-br { bottom: 15px; right: 5px; width: 2px; height: 30px; transform: none; background: transparent; border-right: 2px solid var(--primary-color); }
 
 /* Mobile Response */
 @media (max-width: 1024px) {

@@ -79,11 +79,6 @@ const Hero = ({ profile }) => {
                             e.target.src = "https://ui-avatars.com/api/?name=Bonolo+Sibeko&background=0D0D0D&color=00ff41&size=512";
                         }}
                     />
-                    <div className="profile-overlay"></div>
-                    <div className="profile-corner pc-tl"></div>
-                    <div className="profile-corner pc-tr"></div>
-                    <div className="profile-corner pc-bl"></div>
-                    <div className="profile-corner pc-br"></div>
                 </div>
             </motion.div>
         </div>
