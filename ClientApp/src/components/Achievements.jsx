@@ -33,7 +33,7 @@ const Achievements = ({ achievements }) => {
         </h2>
       </motion.div>
 
-      <div className="achievements-wrapper">
+      <div className="achievements-wrapper" style={{ marginBottom: '5rem' }}>
         {achievements?.map((ach, index) => (
           <motion.div 
             key={index}
