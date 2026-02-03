@@ -44,7 +44,8 @@ function App() {
 
     rafId = requestAnimationFrame(raf);
 
-    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5149/api/Portfolio';
+    const defaultProdApi = 'https://nolosibeko--ae13f1ea00d711f1b6b742dde27851f2.web.val.run';
+    const apiUrl = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? defaultProdApi : 'http://localhost:5149/api/Portfolio');
     console.log("Fetching data from:", apiUrl);
     
     fetch(apiUrl)
