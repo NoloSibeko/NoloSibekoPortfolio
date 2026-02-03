@@ -127,8 +127,8 @@ const Background = () => {
       
       // Handle shooting stars
       starInterval++;
-      // Spawn star roughly every 0.5s (30 frames at 60fps)
-      if (starInterval > 30 && Math.random() > 0.5) {
+      // Spawn star roughly every 4 seconds (240 frames at 60fps) - much rarer
+      if (starInterval > 240 && Math.random() > 0.9) {
           shootingStars.push(new ShootingStar());
           starInterval = 0;
       }

@@ -14,10 +14,12 @@ export const GameProvider = ({ children }) => {
   // Define addLog first as it is used in useEffect
   const addLog = useCallback((message) => {
     const timestamp = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const id = Date.now() + Math.random();
     const logEntry = {
-      id: Date.now() + Math.random(),
+      id,
       text: `[${timestamp}] ${message}`
     };
+    
     setLogs(prev => {
         // Prevent duplicate consecutive messages
         if (prev.length > 0 && prev[0].text.includes(message)) {
@@ -25,6 +27,11 @@ export const GameProvider = ({ children }) => {
         }
         return [logEntry, ...prev].slice(0, maxLogs);
     });
+
+    // Auto-remove log after 2 seconds (quicker fade out)
+    setTimeout(() => {
+        setLogs(prev => prev.filter(l => l.id !== id));
+    }, 2000);
   }, [maxLogs]);
 
   // Level up logic: Level = 1 + floor(sqrt(xp / 100))

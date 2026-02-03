@@ -64,11 +64,11 @@ const Contact = ({ profile }) => {
         </div>
 
         <div className="contact-actions">
-            <div className="contact-group">
+            <div className="contact-group" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
                 <MagneticButton 
                     href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} 
                     className="contact-item primary"
-                    style={{ minWidth: '300px' }} // Fixed width to prevent resizing
+                    style={{ minWidth: '300px', justifyContent: 'center' }} // Fixed width and centered content
                     onMouseEnter={() => !isMobile && setHoveredButton('email')}
                     onMouseLeave={() => setHoveredButton(null)}
                 >
@@ -82,7 +82,7 @@ const Contact = ({ profile }) => {
                 <MagneticButton 
                     href={isMobile ? `tel:${profile.phone.replace(/\s/g, '')}` : undefined} 
                     className="contact-item"
-                    style={{ cursor: isMobile ? 'pointer' : 'default', minWidth: '220px' }} // Fixed width
+                    style={{ cursor: isMobile ? 'pointer' : 'default', minWidth: '220px', justifyContent: 'center' }} // Fixed width and centered content
                     onMouseEnter={() => !isMobile && setHoveredButton('phone')}
                     onMouseLeave={() => setHoveredButton(null)}
                 >
