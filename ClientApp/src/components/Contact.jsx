@@ -24,7 +24,11 @@ const Contact = ({ profile }) => {
                 <MagneticButton href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} className="contact-item primary">
                     <FaEnvelope /> <span>Email Me</span>
                 </MagneticButton>
-                <MagneticButton href={`tel:${profile.phone.replace(/\s/g, '')}`} className="contact-item">
+                <MagneticButton 
+                    href={isMobile ? `tel:${profile.phone.replace(/\s/g, '')}` : undefined} 
+                    className="contact-item"
+                    style={{ cursor: isMobile ? 'pointer' : 'default' }}
+                >
                     <FaPhone /> <span>Call Me</span>
                 </MagneticButton>
             </div>
