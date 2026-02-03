@@ -6,13 +6,7 @@ import MagneticButton from './MagneticButton';
 const Contact = ({ profile }) => {
   return (
     <section className="contact-section">
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="contact-container"
-      >
+      <div className="contact-container">
         <h2 className="section-title glitch" data-text="LET'S WORK TOGETHER">
             <DecryptText text="LET'S WORK TOGETHER" />
         </h2>
@@ -20,8 +14,8 @@ const Contact = ({ profile }) => {
         <div className="contact-message">
             <p>
                 I am currently available for opportunities that align with my full-stack development profile. 
-                If you're looking for a dedicated developer who can bridge the gap between complex backend logic 
-                and engaging frontend experiences, let's connect.
+                I am eager to apply my current skills and deeply committed to learning new technologies to bridge any gaps. 
+                If you're looking for a dedicated developer ready to grow and contribute, let's connect.
             </p>
         </div>
 
@@ -49,7 +43,7 @@ const Contact = ({ profile }) => {
                 </div>
             )}
         </div>
-      </motion.div>
+      </div>
       
       <div className="footer-credits">
         <p>&copy; {new Date().getFullYear()} {profile.name}. ALL SYSTEMS NOMINAL.</p>
