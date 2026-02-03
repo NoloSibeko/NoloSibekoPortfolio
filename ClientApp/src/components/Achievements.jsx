@@ -53,7 +53,12 @@ const Achievements = ({ achievements }) => {
                 style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
             >
                 {ach.imageUrl && (
-                    <img src={ach.imageUrl} alt="Achievement" className="achievement-img" />
+                    <img 
+                      src={ach.imageUrl} 
+                      alt="Achievement" 
+                      className="achievement-img" 
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
                 )}
                 <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                     {!ach.imageUrl && <FaTrophy className="trophy-icon" />}

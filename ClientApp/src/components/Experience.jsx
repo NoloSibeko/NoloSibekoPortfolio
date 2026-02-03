@@ -142,7 +142,12 @@ const Experience = ({ experience, contributions }) => {
                   <div>
                       {contrib.projectImageUrl && (
                           <div className="project-img-container" style={{ border: '1px solid var(--accent-color)', borderRadius: 0 }}>
-                              <img src={contrib.projectImageUrl} alt={`Project ${index + 1}`} className="project-img" />
+                          <img 
+                            src={contrib.projectImageUrl} 
+                            alt={`Project ${index + 1}`} 
+                            className="project-img" 
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          />
                           </div>
                       )}
                       <p style={{ marginTop: '1rem', lineHeight: '1.6', color: '#ccc' }}>

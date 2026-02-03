@@ -66,10 +66,10 @@ const Hero = ({ profile }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
         >
-            <MagneticButton href={`mailto:${profile.email}`} className="contact-item">
+            <MagneticButton href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} className="contact-item">
               <FaEnvelope /> {profile.email}
             </MagneticButton>
-            <MagneticButton className="contact-item">
+            <MagneticButton href={`tel:${profile.phone.replace(/\s/g, '')}`} className="contact-item">
               <FaPhone /> {profile.phone}
             </MagneticButton>
         </motion.div>

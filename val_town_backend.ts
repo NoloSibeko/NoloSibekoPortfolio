@@ -43,7 +43,7 @@ export default async function(req: Request): Promise<Response> {
       { description: "Developed core backend functionality for a self-service kiosk system, including secure user workflows, data processing, and database integration", projectImageUrl: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop" },
       { description: "Built and enhanced a leave management system supporting automated leave requests, approval workflows, role-based access control, and audit logging both front and backend", projectImageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" },
       { description: "Implemented tax compliance features, including rule-driven validation, statutory tax calculations, and data integrity checks aligned with regulatory requirements", projectImageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" },
-      { description: "Designed and optimized database schemas, queries, and transactions to ensure performance and reliability", projectImageUrl: "https://images.unsplash.com/photo-1558494949-ef526b01201b?q=80&w=800&auto=format&fit=crop" },
+      { description: "Designed and optimized database schemas, queries, and transactions to ensure performance and reliability", projectImageUrl: "https://images.unsplash.com/photo-1558494949-ef526b01201b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" },
       { description: "Developed and integrated RESTful APIs to support system interoperability and business processes. Performed debugging, performance tuning, and system enhancements to improve stability, scalability, and maintainability", projectImageUrl: "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=800&auto=format&fit=crop" },
       { description: "Notable projects: https://academy.connecthr.co.za and https://www.connecthr.co.za/ (Live)", links: ["https://academy.connecthr.co.za", "https://www.connecthr.co.za/"], projectImageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" }
     ],
@@ -70,7 +70,7 @@ export default async function(req: Request): Promise<Response> {
       { description: "Football Captain at Corinthians Black Aces", imageUrl: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=800" },
       { description: "Varsity College Men's First Team Football Captain", imageUrl: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=800" },
       { description: "Competed at University Sports South Africa (USSA) for football 2023, 2024 and 2025 (Captain)", imageUrl: "https://images.unsplash.com/photo-1526232636376-53d03f24f092?auto=format&fit=crop&q=80&w=800" },
-      { description: "Played PSL reserve league (DDC) for Tsakhuma Tsha Madzhibandila", imageUrl: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=800" }
+      { description: "Played PSL reserve league (DDC) for Tsakhuma Tsha Madzhibandila", imageUrl: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" }
     ]
   };
 
