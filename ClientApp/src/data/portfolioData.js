@@ -3,7 +3,7 @@ export const portfolioData = {
       name: "Bonolo Sibeko",
       email: "sibekonolo@gmail.com",
       phone: "062 091 2838",
-      description: "Motivated Computer and Information Sciences graduate with hands-on experience across the IT stack, specializing in .NET and PHP development. Proven track record of building, maintaining, and enhancing web-based systems, with expertise in database design, system integration, and real-world workflow adaptation. Adept at transforming ideas into practical solutions while learning quickly in dynamic technical environments.",
+      description: "Full-stack developer with hands-on experience across backend and frontend. | Strong exposure to real-world business systems, comfortable working on production-aligned features. | Experience collaborating in structured development teams with a fast learner, delivery-focused mindset.",
       profileImageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop",
       socials: {
         linkedin: "https://linkedin.com/in/bonolo-sibeko",
@@ -41,22 +41,49 @@ export const portfolioData = {
       { description: "Notable projects: https://academy.connecthr.co.za and https://www.connecthr.co.za/ (Live)", links: ["https://academy.connecthr.co.za", "https://www.connecthr.co.za/"], projectImageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&w=800&q=80" }
     ],
     skills: [
-      { name: "Java", category: "Language" },
-      { name: "C#", category: "Language" },
-      { name: "Kotlin", category: "Language" },
+      // Languages
+      { name: "C# (.NET 8)", category: "Language" },
+      { name: "JavaScript / TypeScript", category: "Language" },
       { name: "PHP", category: "Language" },
-      { name: "SQL Databases", category: "Database" },
-      { name: "Backend Development", category: "Backend" },
-      { name: ".Net", category: "Backend" },
-      { name: "APIs", category: "Backend" },
-      { name: "Agile Dev", category: "Process" },
-      { name: "Network and Software Engineering", category: "General" },
-      { name: "PowerBI", category: "Tool" },
-      { name: "Laravel Framework", category: "Framework" },
-      { name: "React", category: "Frontend" },
-      { name: "HTML", category: "Frontend" },
-      { name: "CSS", category: "Frontend" },
-      { name: "Javascript", category: "Frontend" }
+      { name: "SQL", category: "Language" },
+      { name: "HTML5 / CSS3", category: "Language" },
+
+      // Backend Frameworks
+      { name: "ASP.NET Core (MVC & API)", category: "Backend" },
+      { name: "Entity Framework Core", category: "Backend" },
+      { name: "RESTful API Dev", category: "Backend" },
+      { name: "Auth (JWT/Role-based)", category: "Backend" },
+
+      // Frontend Frameworks
+      { name: "React.js", category: "Frontend" },
+      { name: "Expo / React Native", category: "Frontend" },
+      { name: "API-driven UI", category: "Frontend" },
+
+      // Database
+      { name: "MS SQL Server", category: "Database" },
+      { name: "Relational Design", category: "Database" },
+      { name: "Data Validation", category: "Database" },
+
+      // Tools
+      { name: "Git & GitHub", category: "Tool" },
+      { name: "Visual Studio / VS Code", category: "Tool" },
+      { name: "Postman", category: "Tool" },
+      { name: "Node.js & npm", category: "Tool" },
+      { name: "Expo CLI", category: "Tool" },
+      { name: "Herd", category: "Tool" },
+
+      // Systems & Domain
+      { name: "HR & Payroll Systems", category: "Domain" },
+      { name: "PAYE & YTD Logic (SA)", category: "Domain" },
+      { name: "Leave Management", category: "Domain" },
+      { name: "Learner Management", category: "Domain" },
+      { name: "Kiosk Systems", category: "Domain" },
+
+      // Architecture
+      { name: "MVC Architecture", category: "Architecture" },
+      { name: "Clean Architecture", category: "Architecture" },
+      { name: "Feature-based Dev", category: "Architecture" },
+      { name: "Agile & Iterative", category: "Architecture" }
     ],
     achievements: [
       { description: "Head of House 2020 at Edenglen High School", imageUrl: "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=800" },

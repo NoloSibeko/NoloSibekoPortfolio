@@ -162,41 +162,6 @@ h1, h2, h3 {
       max-width: 300px; /* Consistent width on mobile */
       justify-content: center;
   }
-
-  .achievements-wrapper, 
-  .skills-wrapper,
-  .experience-grid {
-      grid-template-columns: 1fr; /* Stack cards */
-  }
-
-  .achievement-card,
-  .exp-card {
-      /* Disable tilt visually or just styling changes if needed */
-  }
-  
-  /* Hide System Log and HUD on mobile to save space */
-  .system-log, 
-  .game-hud {
-      display: none !important;
-  }
-  
-  .section-title {
-      font-size: clamp(2rem, 10vw, 3rem); /* Smaller on mobile */
-      margin-bottom: 2rem;
-  }
-
-  .experience-section,
-  .skills-section,
-  .achievements-section {
-      padding: 3rem 1rem; /* Reduced padding */
-  }
-
-  .experience-container {
-      margin-left: 0;
-      padding-left: 1rem;
-      border-left-width: 1px;
-      width: auto; /* Prevent overflow */
-  }
 }
 
 .contact-bar {
