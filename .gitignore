@@ -1,0 +1,22 @@
+# .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.pdb
+*.cache
+*.dll
+*.exe
+*.log
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Mac
+.DS_Store
+
+# Other
+dist/
