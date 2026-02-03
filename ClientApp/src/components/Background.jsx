@@ -67,8 +67,49 @@ const Background = () => {
       }
     }
 
+    class ShootingStar {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height * 0.5; // Top half mostly
+            this.len = Math.random() * 80 + 10;
+            this.speed = Math.random() * 10 + 6;
+            this.size = Math.random() * 1 + 0.1;
+            // Angle between 30 and 60 degrees mostly
+            this.angle = Math.PI / 4; 
+            this.dx = Math.cos(this.angle) * this.speed;
+            this.dy = Math.sin(this.angle) * this.speed;
+            this.opacity = 1;
+            this.dead = false;
+        }
+
+        draw() {
+            if (this.dead) return;
+            ctx.save();
+            ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.lineWidth = this.size;
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(this.x - this.len * Math.cos(this.angle), this.y - this.len * Math.sin(this.angle));
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        update() {
+            this.x += this.dx;
+            this.y += this.dy;
+            this.opacity -= 0.02;
+            if (this.opacity <= 0 || this.x > canvas.width || this.y > canvas.height) {
+                this.dead = true;
+            }
+        }
+    }
+
+    let shootingStars = [];
+    let starInterval = 0;
+
     function initParticles() {
       particles = [];
+      shootingStars = [];
       let numberOfParticles = (canvas.width * canvas.height) / 9000;
       for (let i = 0; i < numberOfParticles; i++) {
         let x = Math.random() * canvas.width;
@@ -83,6 +124,22 @@ const Background = () => {
         particles[i].draw();
         particles[i].update();
       }
+      
+      // Handle shooting stars
+      starInterval++;
+      // Spawn star roughly every 0.5s (30 frames at 60fps)
+      if (starInterval > 30 && Math.random() > 0.5) {
+          shootingStars.push(new ShootingStar());
+          starInterval = 0;
+      }
+      
+      for (let i = 0; i < shootingStars.length; i++) {
+          shootingStars[i].draw();
+          shootingStars[i].update();
+      }
+      // Cleanup dead stars
+      shootingStars = shootingStars.filter(s => !s.dead);
+
       connect();
       animationFrameId = requestAnimationFrame(animate);
     }

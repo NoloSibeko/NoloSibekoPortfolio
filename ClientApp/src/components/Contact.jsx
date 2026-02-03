@@ -1,8 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import DecryptText from './DecryptText';
 import MagneticButton from './MagneticButton';
+
+// Hover Decrypt Effect Component
+const HoverDecrypt = ({ text, reveal }) => {
+    const [displayText, setDisplayText] = useState(text);
+    const chars = "-_~`!@#$%^&*()+=[]{}|;:,.<>?/";
+    
+    useEffect(() => {
+        let interval;
+        if (reveal) {
+            let iteration = 0;
+            interval = setInterval(() => {
+                setDisplayText(prev => 
+                    text.split("").map((letter, index) => {
+                        if (index < iteration) return text[index];
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    }).join("")
+                );
+                
+                if (iteration >= text.length) clearInterval(interval);
+                iteration += 1 / 2;
+            }, 30);
+        } else {
+            setDisplayText(text); // Reset instantly or animate back if needed
+        }
+        return () => clearInterval(interval);
+    }, [reveal, text]);
+
+    return <span>{displayText}</span>;
+};
 
 const Contact = ({ profile }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -39,21 +68,30 @@ const Contact = ({ profile }) => {
                 <MagneticButton 
                     href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} 
                     className="contact-item primary"
+                    style={{ minWidth: '300px' }} // Fixed width to prevent resizing
                     onMouseEnter={() => !isMobile && setHoveredButton('email')}
                     onMouseLeave={() => setHoveredButton(null)}
                 >
                     <FaEnvelope /> 
-                    <span>{hoveredButton === 'email' ? profile.email : 'Email Me'}</span>
+                    <span>
+                        {hoveredButton === 'email' ? (
+                            <HoverDecrypt text={profile.email} reveal={true} />
+                        ) : 'Email Me'}
+                    </span>
                 </MagneticButton>
                 <MagneticButton 
                     href={isMobile ? `tel:${profile.phone.replace(/\s/g, '')}` : undefined} 
                     className="contact-item"
-                    style={{ cursor: isMobile ? 'pointer' : 'default' }}
+                    style={{ cursor: isMobile ? 'pointer' : 'default', minWidth: '220px' }} // Fixed width
                     onMouseEnter={() => !isMobile && setHoveredButton('phone')}
                     onMouseLeave={() => setHoveredButton(null)}
                 >
                     <FaPhone /> 
-                    <span>{hoveredButton === 'phone' ? profile.phone : 'Call Me'}</span>
+                    <span>
+                         {hoveredButton === 'phone' ? (
+                            <HoverDecrypt text={profile.phone} reveal={true} />
+                        ) : 'Call Me'}
+                    </span>
                 </MagneticButton>
             </div>
             
