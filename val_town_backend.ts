@@ -70,7 +70,7 @@ export default async function(req: Request): Promise<Response> {
       { description: "Football Captain at Corinthians Black Aces", imageUrl: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=800" },
       { description: "Varsity College Men's First Team Football Captain", imageUrl: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=800" },
       { description: "Competed at University Sports South Africa (USSA) for football 2023, 2024 and 2025 (Captain)", imageUrl: "https://images.unsplash.com/photo-1526232636376-53d03f24f092?auto=format&fit=crop&q=80&w=800" },
-      { description: "Played PSL reserve league (DDC) for Tsakhuma Tsha Madzhibandila", imageUrl: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" }
+      { description: "Played PSL reserve league (DDC) for Tsakhuma Tsha Madzhibandila", imageUrl: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&q=80&w=800" }
     ]
   };
 
