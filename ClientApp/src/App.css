@@ -100,14 +100,15 @@ h1, h2, h3 {
 }
 
 .hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Text takes slightly more space */
-    gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
     max-width: 1400px;
     width: 100%;
-    align-items: center;
     padding: 0 2rem;
-    margin-top: -5vh; /* Slight optical adjustment */
+    margin-top: -5vh;
 }
 
 .hero-text-side {
@@ -116,6 +117,7 @@ h1, h2, h3 {
     flex-direction: column;
     justify-content: center;
     z-index: 10;
+    max-width: 600px;
 }
 
 .hero-image-side {
@@ -157,8 +159,8 @@ h1, h2, h3 {
 /* Profile Image Styling */
 .profile-frame {
     position: relative;
-    width: 340px;
-    height: 420px;
+    width: 250px;
+    height: 300px;
     /* Cyber-shape: Angled corners */
     clip-path: polygon(
         20% 0%, 
@@ -169,23 +171,16 @@ h1, h2, h3 {
         0% 15%
     );
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    filter: grayscale(100%) contrast(1.1) brightness(0.9);
-    /* Neon border glow effect via box-shadow doesn't work well with clip-path, using ::after instead */
+    /* Removed grayscale and background effects */
 }
 
-/* Glow border simulation */
+/* Glow border simulation - Removed */
 .profile-frame::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--primary-color);
-    z-index: -1;
-    opacity: 0.5;
+    display: none;
 }
 
 .profile-frame:hover {
-    filter: grayscale(0%) contrast(1) brightness(1);
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-5px) scale(1.02);
 }
 
 .profile-img {
@@ -197,20 +192,7 @@ h1, h2, h3 {
 }
 
 .profile-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        transparent 0px,
-        transparent 3px,
-        rgba(0, 0, 0, 0.2) 4px
-    );
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.7;
-    transition: opacity 0.3s;
+    display: none;
 }
 
 .profile-frame:hover .profile-overlay {
@@ -237,7 +219,7 @@ h1, h2, h3 {
 /* Mobile Response */
 @media (max-width: 1024px) {
   .hero-grid {
-      grid-template-columns: 1fr;
+      flex-direction: column;
       text-align: center;
       margin-top: 5vh;
       gap: 3rem;
@@ -263,8 +245,8 @@ h1, h2, h3 {
   }
   
   .profile-frame {
-      width: 260px;
-      height: 320px;
+      width: 200px;
+      height: 250px;
   }
 }
 
