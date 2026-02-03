@@ -33,12 +33,21 @@ const Hero = ({ profile }) => {
                 >
                     <motion.h1 
                         className="hero-title glitch" 
-                        data-text={profile.name.toUpperCase()}
+                        data-text="BONOLO"
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.8, ease: "circOut" }}
                     >
-                        <DecryptText text={profile.name.toUpperCase()} />
+                        <DecryptText text="BONOLO" />
+                    </motion.h1>
+                    <motion.h1 
+                        className="hero-title glitch" 
+                        data-text="SIBEKO"
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "circOut" }}
+                    >
+                        <DecryptText text="SIBEKO" />
                     </motion.h1>
                     
                     <motion.div 

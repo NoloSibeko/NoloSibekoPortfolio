@@ -142,8 +142,8 @@ h1, h2, h3 {
   letter-spacing: -2px;
   color: var(--text-color);
   position: relative;
-  line-height: 0.9;
-  margin-bottom: 0.5rem;
+  line-height: 0.8; /* Tighter line height for stacked text */
+  margin-bottom: 0.2rem;
 }
 
 .hero-subtitle {
