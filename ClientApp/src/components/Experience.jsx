@@ -33,7 +33,6 @@ const Experience = ({ experience, contributions }) => {
       <motion.div 
         ref={headerRef1}
         style={{ x: xTitle1 }}
-        className="section-header-container"
       >
         <h2 className="section-title glitch" data-text="EXPERIENCE LOG">
             <DecryptText text="EXPERIENCE LOG" />

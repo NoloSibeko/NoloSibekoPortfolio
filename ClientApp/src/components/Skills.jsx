@@ -161,6 +161,7 @@ const Skills = ({ skills }) => {
                   whileInView="visible"
                   whileHover="hover"
                   viewport={{ once: true }}
+                  style={getScatter(idx)}
                   onMouseEnter={(e) => {
                       handleSkillHover(e, skill.name);
                   }}
