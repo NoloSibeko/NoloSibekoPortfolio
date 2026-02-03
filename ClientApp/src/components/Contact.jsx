@@ -6,6 +6,7 @@ import MagneticButton from './MagneticButton';
 
 const Contact = ({ profile }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [hoveredButton, setHoveredButton] = useState(null); // 'email' | 'phone' | null
 
   useEffect(() => {
     console.log("Contact component mounted, mobile check:", window.innerWidth <= 768);
@@ -35,15 +36,24 @@ const Contact = ({ profile }) => {
 
         <div className="contact-actions">
             <div className="contact-group">
-                <MagneticButton href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} className="contact-item primary">
-                    <FaEnvelope /> <span>Email Me</span>
+                <MagneticButton 
+                    href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} 
+                    className="contact-item primary"
+                    onMouseEnter={() => !isMobile && setHoveredButton('email')}
+                    onMouseLeave={() => setHoveredButton(null)}
+                >
+                    <FaEnvelope /> 
+                    <span>{hoveredButton === 'email' ? profile.email : 'Email Me'}</span>
                 </MagneticButton>
                 <MagneticButton 
                     href={isMobile ? `tel:${profile.phone.replace(/\s/g, '')}` : undefined} 
                     className="contact-item"
                     style={{ cursor: isMobile ? 'pointer' : 'default' }}
+                    onMouseEnter={() => !isMobile && setHoveredButton('phone')}
+                    onMouseLeave={() => setHoveredButton(null)}
                 >
-                    <FaPhone /> <span>Call Me</span>
+                    <FaPhone /> 
+                    <span>{hoveredButton === 'phone' ? profile.phone : 'Call Me'}</span>
                 </MagneticButton>
             </div>
             
