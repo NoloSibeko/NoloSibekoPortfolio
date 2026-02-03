@@ -8,6 +8,7 @@ const Contact = ({ profile }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    console.log("Contact component mounted, mobile check:", window.innerWidth <= 768);
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
