@@ -1,9 +1,22 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import DecryptText from './DecryptText';
 import MagneticButton from './MagneticButton';
 
 const Contact = ({ profile }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section className="contact-section">
       <div className="contact-container">
