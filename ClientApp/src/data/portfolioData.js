@@ -4,7 +4,12 @@ export const portfolioData = {
       email: "sibekonolo@gmail.com",
       phone: "062 091 2838",
       description: "Motivated Computer and Information Sciences graduate with hands-on experience across the IT stack, specializing in .NET and PHP development. Proven track record of building, maintaining, and enhancing web-based systems, with expertise in database design, system integration, and real-world workflow adaptation. Adept at transforming ideas into practical solutions while learning quickly in dynamic technical environments.",
-      profileImageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop"
+      profileImageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800&auto=format&fit=crop",
+      socials: {
+        linkedin: "https://linkedin.com/in/bonolo-sibeko",
+        github: "https://github.com/NoloSibeko",
+        resume: "/resume.pdf" 
+      }
     },
     education: [
       { institution: "Edenglen High School", period: "2016 – 2020", description: "Matric" },

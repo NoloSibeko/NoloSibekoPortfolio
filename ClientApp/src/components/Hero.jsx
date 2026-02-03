@@ -1,79 +1,89 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaArrowDown } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaArrowDown, FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import DecryptText from './DecryptText';
 import MagneticButton from './MagneticButton';
 import { useEffect } from 'react';
 import { useGame } from '../context/GameContext';
 
 const Hero = ({ profile }) => {
-  const { addLog } = useGame();
   const { scrollY } = useScroll();
-  const xTitle = useTransform(scrollY, [0, 600], [0, 200]);
-  const xSubtitle = useTransform(scrollY, [0, 600], [0, -200]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  const { addLog } = useGame();
 
   useEffect(() => {
-    // addLog('SYSTEM INITIALIZED');
-    // addLog('USER AUTHENTICATED');
-  }, []);
-
-  if (!profile) return null;
+    addLog("SYSTEM ONLINE: WELCOME USER");
+  }, [addLog]);
 
   return (
-    <section className="hero">
-      <div className="hero-bg-image" />
-      <div className="hero-content">
-        
-        {/* Massive Name - Moves Right on Scroll */}
-        <motion.div style={{ x: xTitle, opacity }}>
+    <section className="hero-section">
+        <motion.div 
+            style={{ y: y1, opacity }} 
+            className="hero-content"
+        >
             <motion.h1 
-                initial={{ x: -100, opacity: 1 }} // Debug: Force visible
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                className="hero-title glitch"
-                data-text={profile.name}
+                className="hero-title glitch" 
+                data-text={profile.name.toUpperCase()}
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "circOut" }}
             >
-                <DecryptText text={profile.name} speed={100} />
+                <DecryptText text={profile.name.toUpperCase()} />
             </motion.h1>
-        </motion.div>
-
-        {/* Subtitle - Moves Left on Scroll */}
-        <motion.div style={{ x: xSubtitle, opacity }}>
-            <motion.h2
-                initial={{ x: 100, opacity: 1 }} // Debug: Force visible
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+            
+            <motion.div 
                 className="hero-subtitle"
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
             >
-                <DecryptText text="SOFTWARE DEVELOPER_" speed={80} />
-            </motion.h2>
-        </motion.div>
+                <motion.h2 className="glitch" data-text="SOFTWARE DEVELOPER_" style={{ fontSize: 'inherit', margin: 0 }}>
+                    <DecryptText text="SOFTWARE DEVELOPER_" speed={80} />
+                </motion.h2>
+            </motion.div>
 
-        <motion.div 
-            className="hero-description-container"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-        >
-            {profile.description.split('|').map((desc, i) => (
-                <p key={i} className="hero-desc-para">{desc.trim()}</p>
-            ))}
-        </motion.div>
+            <motion.div 
+                className="hero-description-container"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+            >
+                {profile.description.split('|').map((desc, i) => (
+                    <p key={i} className="hero-desc-para">{desc.trim()}</p>
+                ))}
+            </motion.div>
 
-        <motion.div 
-            className="contact-bar"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-        >
-            <MagneticButton href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} className="contact-item">
-              <FaEnvelope /> {profile.email}
-            </MagneticButton>
-            <MagneticButton href={`tel:${profile.phone.replace(/\s/g, '')}`} className="contact-item">
-              <FaPhone /> {profile.phone}
-            </MagneticButton>
+            <motion.div 
+                className="contact-bar"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+            >
+                <div className="contact-group">
+                    <MagneticButton href={`mailto:${profile.email}?subject=Opportunity%20for%20Software%20Developer&body=Hello%20Bonolo%2C%20I%27d%20like%20to%20discuss%20a%20role.`} className="contact-item primary">
+                        <FaEnvelope /> <span>Email Me</span>
+                    </MagneticButton>
+                    <MagneticButton href={`tel:${profile.phone.replace(/\s/g, '')}`} className="contact-item">
+                        <FaPhone /> <span>Call Me</span>
+                    </MagneticButton>
+                </div>
+                
+                {profile.socials && (
+                    <div className="contact-group">
+                        <MagneticButton href={profile.socials.linkedin} target="_blank" className="contact-item">
+                            <FaLinkedin /> <span>LinkedIn</span>
+                        </MagneticButton>
+                        <MagneticButton href={profile.socials.github} target="_blank" className="contact-item">
+                            <FaGithub /> <span>GitHub</span>
+                        </MagneticButton>
+                        <MagneticButton href={profile.socials.resume} target="_blank" className="contact-item highlight">
+                            <FaFileDownload /> <span>Resume</span>
+                        </MagneticButton>
+                    </div>
+                )}
+            </motion.div>
         </motion.div>
-      </div>
 
       <motion.div 
         className="scroll-indicator"

@@ -3,48 +3,58 @@ import { motion } from 'framer-motion';
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [isPointer, setIsPointer] = useState(false);
+  const [isVisible, setIsVisible] = useState(false); // Initially hidden
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+        setIsMobile(window.matchMedia("(max-width: 768px)").matches || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const mouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
+      if (!isVisible) setIsVisible(true);
     };
 
-    const handleMouseOver = (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.interactive')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
+    const checkPointer = () => {
+        const target = document.elementFromPoint(mousePosition.x, mousePosition.y);
+        if (target) {
+            const computed = window.getComputedStyle(target);
+            setIsPointer(computed.cursor === 'pointer');
+        }
     };
 
     window.addEventListener("mousemove", mouseMove);
-    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mouseover", checkPointer); // Use mouseover for better detection
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
-      window.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("mouseover", checkPointer);
+      window.removeEventListener('resize', checkMobile);
     };
-  }, []);
+  }, [isVisible, mousePosition.x, mousePosition.y]);
+
+  if (isMobile) return null; // Don't render on mobile
 
   const variants = {
     default: {
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
-      height: 32,
-      width: 32,
-      backgroundColor: "transparent",
-      border: "2px solid var(--primary-color)",
-      mixBlendMode: "difference"
+      scale: 1
     },
-    hover: {
-      x: mousePosition.x - 32,
-      y: mousePosition.y - 32,
-      height: 64,
-      width: 64,
-      backgroundColor: "var(--primary-color)",
-      border: "none",
-      mixBlendMode: "difference"
+    pointer: {
+        x: mousePosition.x - 16,
+        y: mousePosition.y - 16,
+        scale: 1.5,
+        backgroundColor: "rgba(0, 255, 65, 0.1)",
+        borderColor: "transparent"
     }
   };
 
@@ -52,16 +62,9 @@ const CustomCursor = () => {
     <motion.div
       className="custom-cursor"
       variants={variants}
-      animate={isHovering ? "hover" : "default"}
-      transition={{ type: "spring", stiffness: 500, damping: 28 }}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        borderRadius: '50%',
-        pointerEvents: 'none',
-        zIndex: 9999
-      }}
+      animate={isPointer ? "pointer" : "default"}
+      transition={{ type: "tween", ease: "backOut", duration: 0.1 }} // Faster transition
+      style={{ opacity: isVisible ? 1 : 0 }}
     />
   );
 };
