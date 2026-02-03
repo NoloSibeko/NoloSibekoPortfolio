@@ -1,4 +1,15 @@
 export default async function(req: Request): Promise<Response> {
+  // Handle CORS preflight request
+  if (req.method === "OPTIONS") {
+    return new Response(null, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });
+  }
+
   const data = {
     profile: {
       name: "Bonolo Sibeko",
@@ -67,7 +78,7 @@ export default async function(req: Request): Promise<Response> {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*", // Allow all origins for CORS
-      "Access-Control-Allow-Methods": "GET",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type"
     },
   });

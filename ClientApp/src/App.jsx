@@ -101,7 +101,15 @@ function App() {
       )}
 
       {!loading && !data && (
-           <div className="error">SYSTEM FAILURE: BACKEND OFFLINE OR BLOCKED</div>
+           <div className="error" style={{ color: 'red', textAlign: 'center', marginTop: '20vh' }}>
+             <div>SYSTEM FAILURE: BACKEND OFFLINE OR BLOCKED</div>
+             <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.7 }}>
+               TARGET: {import.meta.env.VITE_API_URL || 'LOCALHOST'}
+             </div>
+             <div style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>
+               CHECK CONSOLE FOR DETAILS
+             </div>
+           </div>
       )}
     </GameProvider>
   );
