@@ -38,15 +38,15 @@ const SystemLog = () => {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column-reverse' }}>
             <AnimatePresence initial={false}>
-                {logs.map((log, index) => (
+                {logs.map((log) => (
                 <motion.div
-                    key={index}
+                    key={log.id}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0 }}
                     style={{ marginBottom: '0.2rem', textShadow: '0 0 5px var(--primary-color)' }}
                 >
-                    {log}
+                    {log.text}
                 </motion.div>
                 ))}
             </AnimatePresence>

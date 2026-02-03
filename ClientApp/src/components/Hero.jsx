@@ -8,18 +8,22 @@ import { useGame } from '../context/GameContext';
 const Hero = ({ profile }) => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   const { addLog } = useGame();
 
   useEffect(() => {
-    addLog("SYSTEM ONLINE: WELCOME USER");
+    // Empty dependency array + check to ensure it only runs once per mount is handled by useEffect behavior
+    // But to be extra safe against strict mode double-invocation or re-renders:
+    const hasLogged = sessionStorage.getItem('hero_welcome_logged');
+    if (!hasLogged) {
+        addLog("SYSTEM ONLINE: WELCOME USER");
+        sessionStorage.setItem('hero_welcome_logged', 'true');
+    }
   }, [addLog]);
 
   return (
-    <section className="hero-section">
+    <section className="hero">
         <motion.div 
-            style={{ y: y1, opacity }} 
             className="hero-content"
         >
             <motion.h1 
@@ -77,7 +81,7 @@ const Hero = ({ profile }) => {
                         <MagneticButton href={profile.socials.github} target="_blank" className="contact-item">
                             <FaGithub /> <span>GitHub</span>
                         </MagneticButton>
-                        <MagneticButton href={profile.socials.resume} target="_blank" className="contact-item highlight">
+                        <MagneticButton href={profile.socials.resume} target="_blank" download="Bonolo_Sibeko_Resume.pdf" className="contact-item highlight">
                             <FaFileDownload /> <span>Resume</span>
                         </MagneticButton>
                     </div>

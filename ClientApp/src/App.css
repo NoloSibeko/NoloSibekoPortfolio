@@ -121,9 +121,9 @@ h1, h2, h3 {
   margin: 0 auto 3rem;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 1rem; /* Increased size */
   line-height: 1.6;
-  color: #888;
+  color: var(--text-color); /* Made brighter (was #888) */
 }
 
 @media (max-width: 768px) {
@@ -164,7 +164,8 @@ h1, h2, h3 {
   }
 
   .achievements-wrapper, 
-  .skills-wrapper {
+  .skills-wrapper,
+  .experience-grid {
       grid-template-columns: 1fr; /* Stack cards */
   }
 
