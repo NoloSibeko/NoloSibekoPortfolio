@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
+import Contact from './components/Contact';
 import Background from './components/Background';
 import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
@@ -84,6 +85,7 @@ function App() {
             <Experience experience={data.experience} contributions={data.contributions} />
             <Skills skills={data.skills} />
             <Achievements achievements={data.achievements} />
+            <Contact profile={data.profile} />
           </motion.div>
       )}
 

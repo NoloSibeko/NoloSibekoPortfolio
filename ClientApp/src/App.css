@@ -331,24 +331,24 @@ h1, h2, h3 {
 }
 
 .skills-category {
-  margin-bottom: 2rem;
+  margin-bottom: 5rem; /* Increased spacing between categories */
 }
 
 .cat-title {
   font-family: var(--font-mono);
   color: var(--secondary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem; /* Increased spacing below title */
   font-weight: bold;
   display: flex;
   align-items: center;
-  font-size: 1.5rem; /* Increased from inherited size */
-  text-shadow: 0 0 5px rgba(255, 0, 60, 0.5); /* Added glow for visibility */
+  font-size: 1.5rem;
+  text-shadow: 0 0 5px rgba(255, 0, 60, 0.5);
   position: sticky;
   top: 0;
-  background: var(--bg-color); /* Ensure background covers content behind */
+  background: var(--bg-color);
   z-index: 20;
-  padding: 10px 0; /* Add some padding */
-  border-bottom: 1px solid rgba(255, 0, 60, 0.2); /* Optional: separator */
+  padding: 15px 0;
+  /* border-bottom removed */
 }
 
 .skills-cloud {
@@ -671,6 +671,44 @@ h1, h2, h3 {
 .hud-value {
   color: var(--text-color);
   font-weight: bold;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-message {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 3rem;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-credits {
+  margin-top: 5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #444;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 768px) {
