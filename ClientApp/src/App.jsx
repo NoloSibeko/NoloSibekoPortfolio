@@ -11,6 +11,7 @@ import Preloader from './components/Preloader';
 import GameHUD from './components/GameHUD';
 import SystemLog from './components/SystemLog';
 import { GameProvider } from './context/GameContext';
+import { portfolioData } from './data/portfolioData';
 import './App.css';
 
 function App() {
@@ -44,26 +45,11 @@ function App() {
 
     rafId = requestAnimationFrame(raf);
 
-    const defaultProdApi = 'https://nolosibeko--ae13f1ea00d711f1b6b742dde27851f2.web.val.run';
-    const apiUrl = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? defaultProdApi : 'http://localhost:5149/api/Portfolio');
-    console.log("Fetching data from:", apiUrl);
-    
-    fetch(apiUrl)
-      .then(res => {
-        console.log("Response received:", res);
-        if (!res.ok) throw new Error('Network response was not ok');
-        return res.json();
-      })
-      .then(data => {
-        console.log("Data loaded:", data);
-        setData(data);
-        // Don't set loading false here, wait for preloader animation
-      })
-      .catch(err => {
-        console.error("Fetch error:", err);
-        // In case of error, we might still want to show content or error state
-        setLoading(false); 
-      });
+    // Simulate loading delay for effect, but use local data for reliability
+    setTimeout(() => {
+      setData(portfolioData);
+      // Preloader handles setLoading(false)
+    }, 1000);
       
     return () => {
         if (rafId) cancelAnimationFrame(rafId);
