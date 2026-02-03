@@ -23,63 +23,65 @@ const Hero = ({ profile }) => {
 
   return (
     <section className="hero">
-        <div className="hero-grid">
-            <motion.div 
-                className="hero-text-side"
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-            >
-                <motion.h1 
-                    className="hero-title glitch" 
-                    data-text={profile.name.toUpperCase()}
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.8, ease: "circOut" }}
-                >
-                    <DecryptText text={profile.name.toUpperCase()} />
-                </motion.h1>
-                
+        <div className="hero-content">
+            <div className="hero-header">
                 <motion.div 
-                    className="hero-subtitle"
+                    className="hero-text-side"
                     initial={{ x: -50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
+                    transition={{ duration: 0.8 }}
                 >
-                    <motion.h2 className="glitch" data-text="SOFTWARE DEVELOPER_" style={{ fontSize: 'inherit', margin: 0 }}>
-                        <DecryptText text="SOFTWARE DEVELOPER_" speed={80} />
-                    </motion.h2>
+                    <motion.h1 
+                        className="hero-title glitch" 
+                        data-text={profile.name.toUpperCase()}
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "circOut" }}
+                    >
+                        <DecryptText text={profile.name.toUpperCase()} />
+                    </motion.h1>
+                    
+                    <motion.div 
+                        className="hero-subtitle"
+                        initial={{ x: -50, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <motion.h2 className="glitch" data-text="SOFTWARE DEVELOPER_" style={{ fontSize: 'inherit', margin: 0 }}>
+                            <DecryptText text="SOFTWARE DEVELOPER_" speed={80} />
+                        </motion.h2>
+                    </motion.div>
                 </motion.div>
 
                 <motion.div 
-                    className="hero-description-container"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
+                    className="hero-image-side"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
                 >
-                    {profile.description.split('|').map((desc, i) => (
-                        <p key={i} className="hero-desc-para">{desc.trim()}</p>
-                    ))}
+                    <div className="profile-frame">
+                        <img 
+                            src={profile.profileImageUrl} 
+                            alt="Profile" 
+                            className="profile-img" 
+                            onError={(e) => {
+                                e.target.onerror = null; 
+                                e.target.src = "https://ui-avatars.com/api/?name=Bonolo+Sibeko&background=0D0D0D&color=00ff41&size=512";
+                            }}
+                        />
+                    </div>
                 </motion.div>
-            </motion.div>
+            </div>
 
             <motion.div 
-                className="hero-image-side"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
+                className="hero-description-container"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
             >
-                <div className="profile-frame">
-                    <img 
-                        src={profile.profileImageUrl} 
-                        alt="Profile" 
-                        className="profile-img" 
-                        onError={(e) => {
-                            e.target.onerror = null; 
-                            e.target.src = "https://ui-avatars.com/api/?name=Bonolo+Sibeko&background=0D0D0D&color=00ff41&size=512";
-                        }}
-                    />
-                </div>
+                {profile.description.split('|').map((desc, i) => (
+                    <p key={i} className="hero-desc-para">{desc.trim()}</p>
+                ))}
             </motion.div>
         </div>
 
