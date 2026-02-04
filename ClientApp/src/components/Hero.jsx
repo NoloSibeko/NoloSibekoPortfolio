@@ -157,7 +157,11 @@ const Hero = ({ profile }) => {
                                 onError={(e) => { e.target.style.display = 'none'; }}
                             />
                         )}
-                    </motion.div>
+                    </div>
+                    {/* Caption aligned with subtitle */}
+                    <div className="profile-caption">
+                        FIGURE 1.0 // SUBJ: BONOLO
+                    </div>
                 </motion.div>
             </div>
 

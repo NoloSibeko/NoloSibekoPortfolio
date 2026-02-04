@@ -204,16 +204,6 @@ h1, h2, h3 {
   margin-bottom: 2rem;
 }
 
-.profile-frame {
-    position: relative;
-    width: 220px;
-    height: 260px;
-    z-index: 10;
-    perspective: 1000px;
-    /* Place picture a bit lower */
-    transform: translateY(15px);
-}
-
 /* 3D Printed / Scanned Aesthetic */
 .profile-img {
     width: 100%;
@@ -221,27 +211,36 @@ h1, h2, h3 {
     object-fit: cover;
     object-position: center top;
     display: block;
-    /* Natural colors, slightly low contrast per request */
-    filter: contrast(90%) brightness(1.0) grayscale(10%);
-    transition: filter 0.5s ease;
+    /* Low contrast / muted look initially, but not B&W */
+    filter: contrast(60%) brightness(0.8) grayscale(30%) sepia(10%);
+    transition: filter 0.4s ease, transform 0.4s ease;
     pointer-events: none;
 }
 
-/* Hover Effect: Brings back punchy contrast and tech feel */
+/* Hover Effect: Sharp, high contrast, full color */
 .profile-frame:hover .profile-img {
-    filter: contrast(110%) brightness(1.1) grayscale(0%);
+    filter: contrast(120%) brightness(1.1) grayscale(0%) sepia(0%);
 }
 
-.profile-frame::after {
-    content: "FIGURE 1.0 // SUBJ: BONOLO";
-    position: absolute;
-    bottom: -25px;
-    right: 0;
+.profile-frame {
+    position: relative;
+    width: 220px;
+    height: 260px;
+    z-index: 10;
+    perspective: 1000px;
+    margin-bottom: 0.5rem; /* Add space for caption */
+}
+
+.profile-caption {
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem); /* Match/Scale with subtitle roughly */
     color: var(--text-color);
     opacity: 0.5;
     letter-spacing: 1px;
+    text-align: right; /* Align to right of image side */
+    margin-top: 5px;
+    /* Ensure it aligns with the subtitle text visually */
+    line-height: 1.5;
 }
 
 /* Glitch Scribble Animation */
