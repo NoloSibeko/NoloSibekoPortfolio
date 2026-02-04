@@ -144,10 +144,9 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Changed from center to flex-start */
+  align-items: center; /* Centered horizontally */
   position: relative;
   padding: 2rem;
-  padding-left: 6rem; /* Aligned with spine */
   padding-bottom: 0;
   overflow: hidden;
 }
@@ -156,38 +155,35 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Changed from center to flex-start */
+    align-items: flex-start; /* Keep internal items aligned left relative to container? */
+    /* Actually, we want the hero-header to be centered. */
+    align-items: center;
     width: 100%;
     max-width: 1400px;
     z-index: 10;
-    /* padding: 0 2rem; Removed to avoid double padding */
 }
 
 .hero-header {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin-bottom: 1rem; /* Reduced margin bottom */
-    flex-wrap: wrap;
+    flex-direction: row; /* Side by side */
+    align-items: flex-end; /* Align bottoms */
+    gap: 4rem;
+    width: 100%;
+    justify-content: center; /* Center the group */
+    margin-bottom: 2rem;
 }
 
 .hero-text-side {
-    text-align: left; /* Changed from right to left */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; /* Align items to the start (left) */
-    z-index: 10;
+    text-align: left;
+    flex: 0 0 auto; /* Don't stretch */
 }
 
 .hero-image-side {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    perspective: 1000px;
+    flex: 0 0 auto;
+    width: 300px; /* Fixed width for stability */
+    height: 400px;
+    position: relative;
+    /* Removed padding/margin to ensure bottom alignment works */
 }
 
 .hero-title {
@@ -196,7 +192,7 @@ h1, h2, h3 {
   letter-spacing: -2px;
   color: var(--text-color);
   position: relative;
-  line-height: 0.8; /* Tighter line height for stacked text */
+  line-height: 0.8;
   margin-bottom: 0.2rem;
 }
 
@@ -208,63 +204,65 @@ h1, h2, h3 {
   margin-bottom: 2rem;
 }
 
-.hero-description-container {
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-color);
-}
-
-/* Profile Image Styling */
 .profile-frame {
     position: relative;
     width: 220px;
     height: 260px;
-    transition: all 0.5s ease;
-    /* 3D Transform is now handled by Framer Motion in JS for interactive tilt */
     z-index: 10;
     perspective: 1000px;
 }
 
-/* Hover scale handled by JS/Framer now, or keep simple scale */
-.profile-frame:hover {
-    /* transform: scale(1.05);  Let Framer handle this to avoid conflicts */
+.profile-frame::after {
+    content: "FIGURE 1.0 // SUBJ: BONOLO";
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-color);
+    opacity: 0.5;
+    letter-spacing: 1px;
 }
 
+/* 3D Printed / Scanned Aesthetic */
 .profile-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
     display: block;
-    /* Adjust brightness to match dark theme */
-    filter: brightness(0.9) contrast(1.1) grayscale(0.2) drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+    /* High contrast grayscale for "3D printed/scanned" look */
+    filter: grayscale(100%) contrast(120%) brightness(1.1);
     transition: filter 0.5s ease;
-    /* Mask removed per user request to keep original edges */
-    pointer-events: none; /* Let clicks pass through to container */
+    pointer-events: none;
 }
 
+/* Removed green glow hover effect per request */
 .profile-frame:hover .profile-img {
-    filter: brightness(1) contrast(1.1) grayscale(0) drop-shadow(0 20px 40px rgba(0, 255, 65, 0.3));
+    filter: grayscale(100%) contrast(120%) brightness(1.1);
 }
 
-/* Decorative Corners - Removed per request */
-.profile-corner {
-    display: none;
+/* Glitch Scribble Animation */
+@keyframes glitch-scribble {
+    0% { transform: translateX(-3px) skewX(-10deg); }
+    25% { transform: translateX(4px) skewX(10deg); }
+    50% { transform: translateX(-5px) skewX(-5deg); }
+    75% { transform: translateX(3px) skewX(5deg); }
+    100% { transform: translateX(-3px) skewX(-10deg); }
+}
+
+.glitch-layer {
+    animation: glitch-scribble 0.05s infinite;
+    pointer-events: none;
+    mix-blend-mode: exclusion; /* Makes it look inverted/techy */
 }
 
 /* Mobile Response */
 @media (max-width: 1024px) {
   .hero-header {
-      flex-direction: column-reverse; /* Image top, text bottom? Or Column? */
-      /* Usually Text Top, Image Bottom on mobile, but let's see. */
-      /* If "next to my name" is key, maybe keep row but smaller? */
-      /* Let's stick to column for mobile for safety, text top. */
       flex-direction: column; 
       gap: 2rem;
+      align-items: center; /* Center items on mobile */
       text-align: center;
   }
   

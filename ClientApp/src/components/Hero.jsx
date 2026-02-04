@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'fram
 import { FaEnvelope, FaPhone, FaArrowDown, FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import DecryptText from './DecryptText';
 import MagneticButton from './MagneticButton';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useGame } from '../context/GameContext';
 
 const Hero = ({ profile }) => {
@@ -12,6 +12,7 @@ const Hero = ({ profile }) => {
   // Mouse tilt effect state
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const [glitchY, setGlitchY] = useState(null);
 
   // Smooth out the mouse movement
   const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
@@ -30,11 +31,15 @@ const Hero = ({ profile }) => {
     
     x.set(xPct);
     y.set(yPct);
+    
+    // Glitch effect position
+    setGlitchY(mouseYPos);
   }
 
   function handleMouseLeave() {
     x.set(0);
     y.set(0);
+    setGlitchY(null);
   }
 
   // Calculate rotation based on mouse position
@@ -132,6 +137,24 @@ const Hero = ({ profile }) => {
                                 e.target.src = "https://ui-avatars.com/api/?name=Bonolo+Sibeko&background=0D0D0D&color=00ff41&size=512";
                             }}
                         />
+                        {/* Scanned/Glitch Overlay */}
+                        {glitchY !== null && (
+                            <img 
+                                src={profile.profileImageUrl} 
+                                className="profile-img glitch-layer"
+                                alt=""
+                                style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    clipPath: `inset(${glitchY - 15}px 0 ${260 - (glitchY + 15)}px 0)`,
+                                    zIndex: 20,
+                                    filter: 'grayscale(1) contrast(1.5) invert(1)',
+                                    opacity: 0.8
+                                }} 
+                                onError={(e) => { e.target.style.display = 'none'; }}
+                            />
+                        )}
                     </motion.div>
                 </motion.div>
             </div>

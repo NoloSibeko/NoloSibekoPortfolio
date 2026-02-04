@@ -65,7 +65,6 @@ function App() {
       <div className="noise-overlay" />
       <div className="vignette" />
       <div className="system-spine" />
-      <div className="scanline" />
       <motion.div className="scroll-progress" style={{ scaleX }} />
       
       <AnimatePresence mode='wait'>
