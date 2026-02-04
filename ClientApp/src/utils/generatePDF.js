@@ -198,9 +198,9 @@ export const generateResume = (data) => {
   });
 
   // Save the PDF
-  doc.save('Bonolo_Sibeko_CV.pdf');
+    doc.save('Bonolo_Sibeko_CV.pdf');
   } catch (error) {
     console.error("PDF Generation Error:", error);
-    alert("Could not generate PDF. Please check the console for details.");
+    alert(`Could not generate PDF: ${error.message}`);
   }
 };

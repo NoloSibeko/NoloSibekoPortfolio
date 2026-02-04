@@ -164,7 +164,7 @@ h1, h2, h3 {
 .hero-header {
     display: flex;
     flex-direction: row; /* Side by side */
-    align-items: flex-end; /* Align bottoms again */
+    align-items: center; /* Align vertically center */
     gap: 4rem;
     width: 100%;
     justify-content: center; /* Center the group */
@@ -227,8 +227,8 @@ h1, h2, h3 {
 
 .profile-frame {
     position: relative;
-    width: 220px;
-    height: 260px;
+    width: 300px; /* Increased size for Desktop */
+    height: 360px; /* Increased size for Desktop */
     z-index: 10;
     perspective: 1000px;
 }
@@ -285,55 +285,59 @@ h1, h2, h3 {
 /* Mobile Response */
 @media (max-width: 1024px) {
   .hero-header {
-      flex-direction: column-reverse; /* Stack image on top of text or vice-versa? usually image top or text top. User said "place picture and hero to be in same row" for PC. For mobile, column is best. */
-      gap: 3rem;
-      align-items: center; /* Center items on mobile */
-      text-align: center;
-      margin-top: 2rem;
-  }
-  
-  .hero-text-side {
-      text-align: center;
-      align-items: center;
-      width: 100%;
-  }
+        flex-direction: column-reverse; /* Stack image on top of text or vice-versa? usually image top or text top. User said "place picture and hero to be in same row" for PC. For mobile, column is best. */
+        gap: 3rem;
+        align-items: center; /* Center items on mobile */
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    .hero-text-side {
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
 
-  .hero-image-side {
-      width: 100%;
-      margin-bottom: 1rem;
-  }
-  
-  .hero-title {
-      font-size: clamp(2.5rem, 10vw, 4rem);
-      line-height: 1;
-  }
+    .hero-image-side {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+        line-height: 1;
+    }
 
-  .hero-subtitle {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-  }
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
 
-  .profile-frame {
-      width: 180px;
-      height: 220px;
-  }
+    .profile-frame {
+        width: 180px;
+        height: 220px;
+    }
 
-  .hero-description-container {
-      padding: 0 1rem;
-      font-size: 0.9rem;
-  }
+    .hero-description-container {
+        padding: 0 1rem;
+        font-size: 0.9rem;
+    }
 
-  .experience-section, .skills-section {
-      padding: 0 1.5rem 4rem 1.5rem; /* Remove huge left padding */
-  }
+    .experience-section, .skills-section {
+        padding: 0 1rem 4rem 1rem; /* Reduced padding for mobile */
+    }
 
-  .system-spine {
-      display: none; /* Hide spine on mobile */
-  }
+    .experience-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
 
-  .skills-wrapper {
-      grid-template-columns: repeat(2, 1fr) !important; /* 2 cols on tablet */
-  }
+    .system-spine {
+        display: none; /* Hide spine on mobile */
+    }
+
+    .skills-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 cols on tablet */
+    }
 }
 
 @media (max-width: 600px) {
@@ -358,13 +362,11 @@ h1, h2, h3 {
         width: 100%;
         justify-content: center;
     }
-}
-  }
-  
-  .profile-frame {
-      width: 140px;
-      height: 160px;
-  }
+
+    .profile-frame {
+        width: 140px;
+        height: 160px;
+    }
 }
 
 .contact-bar {

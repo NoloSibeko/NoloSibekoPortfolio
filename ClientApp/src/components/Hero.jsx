@@ -64,7 +64,7 @@ const Hero = ({ profile }) => {
             <div className="hero-header">
                 <motion.div 
                     className="hero-text-side"
-                    initial={{ x: -50, opacity: 0 }}
+                    initial={{ x: -150, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.8 }}
                 >
@@ -157,7 +157,7 @@ const Hero = ({ profile }) => {
                                 onError={(e) => { e.target.style.display = 'none'; }}
                             />
                         )}
-                    </div>
+                    </motion.div>
                     {/* Caption aligned with subtitle */}
                     <div className="profile-caption">
                         FIGURE 1.0 // SUBJ: BONOLO
