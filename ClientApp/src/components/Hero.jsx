@@ -56,8 +56,8 @@ const Hero = ({ profile }) => {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <motion.h2 className="glitch" data-text="SOFTWARE DEVELOPER_" style={{ fontSize: 'inherit', margin: 0 }}>
-                            <DecryptText text="SOFTWARE DEVELOPER_" speed={80} />
+                        <motion.h2 className="glitch" data-text="SOFTWARE DEVELOPER || JOHANNESBURG_" style={{ fontSize: 'inherit', margin: 0 }}>
+                            <DecryptText text="SOFTWARE DEVELOPER || JOHANNESBURG_" speed={80} />
                         </motion.h2>
                     </motion.div>
                 </motion.div>
