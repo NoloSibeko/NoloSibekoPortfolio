@@ -10,8 +10,7 @@ export const portfolioData = {
         description: "Software Engineer with a BSc in Computer & Information Science, specializing in high-performance full-stack architectures. | I build mission-critical solutions using C#, ASP.NET Core, and React, engineering robust backends that drive fluid, responsive interfaces. | Expert in SQL Server optimization and scalable system design, I bridge the gap between complex data logic and user experience. | I don't just write code; I engineer reliable, efficient, and scalable software ecosystems designed for impact.",
       socials: {
         linkedin: "https://www.linkedin.com/in/bonolo-sibeko-b92663251",
-        github: "https://github.com/NoloSibeko",
-        resume: "/resume.pdf" 
+        github: "https://github.com/NoloSibeko"
       }
     },
     education: [

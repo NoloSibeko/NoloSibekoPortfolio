@@ -1,8 +1,9 @@
-import jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 
 export const generateResume = (data) => {
-  const doc = new jsPDF();
-  const pageWidth = doc.internal.pageSize.getWidth();
+  try {
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const margin = 20;
   const contentWidth = pageWidth - (margin * 2);
@@ -185,4 +186,8 @@ export const generateResume = (data) => {
 
   // Save the PDF
   doc.save('Bonolo_Sibeko_CV.pdf');
+  } catch (error) {
+    console.error("PDF Generation Error:", error);
+    alert("Could not generate PDF. Please check the console for details.");
+  }
 };

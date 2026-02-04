@@ -108,7 +108,13 @@ const Contact = ({ profile }) => {
                     <MagneticButton 
                         onClick={(e) => {
                             e.preventDefault();
-                            generateResume(portfolioData);
+                            console.log("Generating resume...");
+                            try {
+                                generateResume(portfolioData);
+                            } catch (err) {
+                                console.error("Resume generation failed:", err);
+                                alert("Failed to generate resume. Please check console.");
+                            }
                         }}
                         className="contact-item highlight"
                     >
