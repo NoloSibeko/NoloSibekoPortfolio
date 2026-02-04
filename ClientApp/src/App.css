@@ -210,6 +210,8 @@ h1, h2, h3 {
     height: 260px;
     z-index: 10;
     perspective: 1000px;
+    /* Place picture a bit lower */
+    transform: translateY(15px);
 }
 
 /* 3D Printed / Scanned Aesthetic */
@@ -219,16 +221,15 @@ h1, h2, h3 {
     object-fit: cover;
     object-position: center top;
     display: block;
-    /* High contrast grayscale for "3D printed/scanned" look, but with slight color bleed */
-    filter: grayscale(60%) contrast(120%) brightness(1.1) sepia(20%) hue-rotate(90deg);
+    /* Natural colors, slightly low contrast per request */
+    filter: contrast(90%) brightness(1.0) grayscale(10%);
     transition: filter 0.5s ease;
     pointer-events: none;
 }
 
-/* Removed green glow hover effect per request */
+/* Hover Effect: Brings back punchy contrast and tech feel */
 .profile-frame:hover .profile-img {
-    /* Bring back more color on hover */
-    filter: grayscale(40%) contrast(125%) brightness(1.1) sepia(10%);
+    filter: contrast(110%) brightness(1.1) grayscale(0%);
 }
 
 .profile-frame::after {
