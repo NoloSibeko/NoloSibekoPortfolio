@@ -167,13 +167,16 @@ h1, h2, h3 {
 /* Profile Image Styling */
 .profile-frame {
     position: relative;
-    width: 160px;
-    height: 180px;
+    width: 220px;
+    height: 260px;
     transition: all 0.5s ease;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(10deg);
+    z-index: 10;
 }
 
 .profile-frame:hover {
-    transform: translateY(-5px);
+    transform: perspective(1000px) rotateY(0deg) scale(1.05);
 }
 
 .profile-img {
@@ -183,12 +186,15 @@ h1, h2, h3 {
     object-position: center top;
     display: block;
     /* Adjust brightness to match dark theme */
-    filter: brightness(0.9) contrast(1.1) grayscale(0.2);
+    filter: brightness(0.9) contrast(1.1) grayscale(0.2) drop-shadow(0 15px 30px rgba(0,0,0,0.6));
     transition: filter 0.5s ease;
+    /* Smoothen shoulders/chest */
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 }
 
 .profile-frame:hover .profile-img {
-    filter: brightness(1) contrast(1.1) grayscale(0);
+    filter: brightness(1) contrast(1.1) grayscale(0) drop-shadow(0 20px 40px rgba(0, 255, 65, 0.3));
 }
 
 /* Decorative Corners - Removed per request */
