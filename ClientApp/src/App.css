@@ -180,10 +180,12 @@ h1, h2, h3 {
 
 .hero-image-side {
     flex: 0 0 auto;
-    width: 300px; /* Fixed width for stability */
-    height: 400px;
+    width: auto; /* Allow it to shrink to image size */
+    height: auto; /* Remove fixed height so bottom alignment works */
     position: relative;
-    /* Removed padding/margin to ensure bottom alignment works */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-title {
@@ -228,7 +230,6 @@ h1, h2, h3 {
     height: 260px;
     z-index: 10;
     perspective: 1000px;
-    margin-bottom: 0.5rem; /* Add space for caption */
 }
 
 .profile-caption {
@@ -237,9 +238,9 @@ h1, h2, h3 {
     color: var(--text-color);
     opacity: 0.5;
     letter-spacing: 1px;
-    text-align: right; /* Align to right of image side */
-    margin-top: 5px;
-    /* Ensure it aligns with the subtitle text visually */
+    position: absolute;
+    bottom: -25px; /* Place below the image container */
+    right: 0; /* Align with right edge of image */
     line-height: 1.5;
 }
 
