@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaArrowDown, FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import DecryptText from './DecryptText';
 import MagneticButton from './MagneticButton';
@@ -8,6 +8,38 @@ import { useGame } from '../context/GameContext';
 const Hero = ({ profile }) => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+
+  // Mouse tilt effect state
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Smooth out the mouse movement
+  const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
+  const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
+
+  function handleMouseMove(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseXPos = event.clientX - rect.left;
+    const mouseYPos = event.clientY - rect.top;
+    
+    // Calculate percentage from center (-0.5 to 0.5)
+    const xPct = (mouseXPos / width) - 0.5;
+    const yPct = (mouseYPos / height) - 0.5;
+    
+    x.set(xPct);
+    y.set(yPct);
+  }
+
+  function handleMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  // Calculate rotation based on mouse position
+  const rotateX = useTransform(mouseY, [-0.5, 0.5], [20, -20]);
+  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-20, 20]);
 
   const { addLog } = useGame();
 
@@ -57,18 +89,40 @@ const Hero = ({ profile }) => {
                         transition={{ delay: 0.2 }}
                     >
                         <motion.h2 className="glitch" data-text="SOFTWARE DEVELOPER || JOHANNESBURG_" style={{ fontSize: 'inherit', margin: 0 }}>
-                            <DecryptText text="SOFTWARE DEVELOPER || JOHANNESBURG_" speed={80} />
+                            <DecryptText text="SOFTWARE DEVELOPER || JOHANNESBURG_" speed={30} />
                         </motion.h2>
                     </motion.div>
                 </motion.div>
 
                 <motion.div 
                     className="hero-image-side"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.8, y: 0 }}
+                    animate={{ 
+                        opacity: 1, 
+                        scale: 1,
+                        y: [0, -15, 0] 
+                    }}
+                    transition={{ 
+                        opacity: { delay: 0.5, duration: 0.8 },
+                        scale: { delay: 0.5, duration: 0.8 },
+                        y: {
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 1.3
+                        }
+                    }}
                 >
-                    <div className="profile-frame">
+                    <motion.div 
+                        className="profile-frame"
+                        onMouseMove={handleMouseMove}
+                        onMouseLeave={handleMouseLeave}
+                        style={{
+                            rotateX,
+                            rotateY,
+                            transformStyle: "preserve-3d",
+                        }}
+                    >
                         <img 
                             src={profile.profileImageUrl} 
                             alt="Profile" 
@@ -78,7 +132,7 @@ const Hero = ({ profile }) => {
                                 e.target.src = "https://ui-avatars.com/api/?name=Bonolo+Sibeko&background=0D0D0D&color=00ff41&size=512";
                             }}
                         />
-                    </div>
+                    </motion.div>
                 </motion.div>
             </div>
 

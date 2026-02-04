@@ -170,13 +170,14 @@ h1, h2, h3 {
     width: 220px;
     height: 260px;
     transition: all 0.5s ease;
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateY(10deg);
+    /* 3D Transform is now handled by Framer Motion in JS for interactive tilt */
     z-index: 10;
+    perspective: 1000px;
 }
 
+/* Hover scale handled by JS/Framer now, or keep simple scale */
 .profile-frame:hover {
-    transform: perspective(1000px) rotateY(0deg) scale(1.05);
+    /* transform: scale(1.05);  Let Framer handle this to avoid conflicts */
 }
 
 .profile-img {
@@ -191,6 +192,7 @@ h1, h2, h3 {
     /* Smoothen shoulders/chest */
     -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    pointer-events: none; /* Let clicks pass through to container */
 }
 
 .profile-frame:hover .profile-img {
