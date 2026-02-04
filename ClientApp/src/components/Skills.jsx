@@ -146,6 +146,10 @@ const Skills = ({ skills }) => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+            style={{
+                '--glitch-delay': `${Math.random() * 2}s`,
+                '--glitch-delay-2': `${Math.random() * 2}s`
+            }}
           >
             <div className="cat-title" style={{ display: 'flex', alignItems: 'center' }}>
                <span style={{ fontSize: '1.5em', marginRight: '1rem' }}>{getIcon(cat)}</span> {cat.toUpperCase()}
