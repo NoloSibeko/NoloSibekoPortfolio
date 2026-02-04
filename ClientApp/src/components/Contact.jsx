@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaFileDownload } from 'react-icons/fa';
 import DecryptText from './DecryptText';
 import MagneticButton from './MagneticButton';
+import { portfolioData } from '../data/portfolioData';
+import { generateResume } from '../utils/generatePDF';
 
 // Hover Decrypt Effect Component
 const HoverDecrypt = ({ text, reveal }) => {
@@ -103,7 +105,13 @@ const Contact = ({ profile }) => {
                     <MagneticButton href={profile.socials.github} target="_blank" className="contact-item">
                         <FaGithub /> <span>GitHub</span>
                     </MagneticButton>
-                    <MagneticButton href={profile.socials.resume} target="_blank" download="Bonolo_Sibeko_Resume.pdf" className="contact-item highlight">
+                    <MagneticButton 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            generateResume(portfolioData);
+                        }}
+                        className="contact-item highlight"
+                    >
                         <FaFileDownload /> <span>Resume</span>
                     </MagneticButton>
                 </div>
