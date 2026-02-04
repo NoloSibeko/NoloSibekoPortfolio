@@ -67,6 +67,28 @@ const Background = () => {
       }
     }
 
+    // Connect particles with lines
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+                let dx = particles[a].x - particles[b].x;
+                let dy = particles[a].y - particles[b].y;
+                let distance = dx * dx + dy * dy;
+
+                if (distance < (canvas.width/7) * (canvas.height/7)) {
+                    opacityValue = 1 - (distance/20000);
+                    ctx.strokeStyle = 'rgba(204, 255, 0,' + opacityValue * 0.15 + ')'; // Volt color
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[a].x, particles[a].y);
+                    ctx.lineTo(particles[b].x, particles[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
     class ShootingStar {
         constructor() {
             this.x = Math.random() * canvas.width;
@@ -119,18 +141,18 @@ const Background = () => {
     }
 
     function animate() {
+      animationFrameId = requestAnimationFrame(animate);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       for (let i = 0; i < particles.length; i++) {
         particles[i].draw();
         particles[i].update();
       }
-      
-      // Handle shooting stars
-      starInterval++;
-      // Spawn star roughly every 4 seconds (240 frames at 60fps) - much rarer
-      if (starInterval > 240 && Math.random() > 0.9) {
+      connect(); // Connect particles
+
+      // Shooting stars
+      if (Math.random() < 0.02) {
           shootingStars.push(new ShootingStar());
-          starInterval = 0;
       }
       
       for (let i = 0; i < shootingStars.length; i++) {
@@ -139,9 +161,6 @@ const Background = () => {
       }
       // Cleanup dead stars
       shootingStars = shootingStars.filter(s => !s.dead);
-
-      connect();
-      animationFrameId = requestAnimationFrame(animate);
     }
 
     function connect() {

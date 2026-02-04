@@ -59,6 +59,57 @@ body {
   opacity: 0.05;
 }
 
+/* System Spine - The Backbone */
+.system-spine {
+  position: fixed;
+  top: 0;
+  left: 50px; /* Aligns with the experience border */
+  width: 1px;
+  height: 100vh;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    var(--primary-color) 50%, 
+    transparent 100%
+  );
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Scanline Effect - Alive Feel */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to bottom, 
+    rgba(0, 255, 65, 0), 
+    rgba(0, 255, 65, 0.1), 
+    rgba(0, 255, 65, 0)
+  );
+  z-index: 9999;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+  opacity: 0.3;
+}
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.9) 150%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes scanline {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
 /* Scroll Progress */
 .scroll-progress {
   position: fixed;
@@ -93,10 +144,11 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to flex-start */
   position: relative;
   padding: 2rem;
-  padding-bottom: 0; /* Reduced padding bottom */
+  padding-left: 6rem; /* Aligned with spine */
+  padding-bottom: 0;
   overflow: hidden;
 }
 
@@ -104,11 +156,11 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to flex-start */
     width: 100%;
     max-width: 1400px;
     z-index: 10;
-    padding: 0 2rem;
+    /* padding: 0 2rem; Removed to avoid double padding */
 }
 
 .hero-header {
@@ -271,9 +323,10 @@ h1, h2, h3 {
 
 /* Experience Section */
 .experience-section {
-  padding: 2rem 2rem 5rem; /* Reduced top padding */
+  padding: 0 2rem 5rem 6rem; /* Increased left padding for spine */
   max-width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 
 .section-title {
@@ -290,10 +343,11 @@ h1, h2, h3 {
 }
 
 .experience-container {
-  border-left: 2px solid #222;
-  margin-left: 1rem;
-  padding-left: 2rem;
-  /* width: 100%; Removed to prevent overflow */
+  /* Border removed - replaced by global System Spine */
+  /* border-left: 2px solid #222; */
+  /* margin-left: 1rem; */
+  /* padding-left: 2rem; */
+  position: relative;
 }
 
 .experience-grid {
@@ -383,9 +437,10 @@ h1, h2, h3 {
 
 /* Skills Section */
 .skills-section {
-  padding: 5rem 2rem;
+  padding: 0 2rem 5rem 6rem; /* Increased left padding for spine */
   max-width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 
 .skills-wrapper {
@@ -508,9 +563,10 @@ h1, h2, h3 {
 
 /* Achievements Section */
 .achievements-section {
-  padding: 5rem 2rem;
+  padding: 0 2rem 5rem 6rem; /* Increased left padding for spine */
   max-width: 100%; /* Use whole page width */
   margin: 0 auto;
+  position: relative;
 }
 
 .achievements-wrapper {

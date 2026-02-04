@@ -58,6 +58,27 @@ const Experience = ({ experience, contributions }) => {
                   scale={1.02}
                   gyroscope={true}
                 >
+                  {/* Connector Line to Spine */}
+                  <div className="spine-connector" style={{
+                      position: 'absolute',
+                      left: '-4rem',
+                      top: '2rem',
+                      width: '4rem',
+                      height: '2px',
+                      background: 'linear-gradient(90deg, var(--primary-color), transparent)',
+                      opacity: 0.3
+                  }} />
+                  <div className="spine-node" style={{
+                      position: 'absolute',
+                      left: '-4rem',
+                      top: '1.8rem',
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: 'var(--primary-color)',
+                      boxShadow: '0 0 10px var(--primary-color)'
+                  }} />
+
                   {/* Target Brackets */}
                   <div className="target-bracket tb-tl"></div>
                   <div className="target-bracket tb-tr"></div>

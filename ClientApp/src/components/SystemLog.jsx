@@ -16,7 +16,7 @@ const SystemLog = () => {
           style={{
             position: 'fixed',
             bottom: '2rem',
-            left: '2rem',
+            left: '4.5rem', /* Aligned to right of spine (50px + gap) */
             fontFamily: 'var(--font-mono)',
             fontSize: '0.7rem',
             color: 'var(--primary-color)',

@@ -148,16 +148,21 @@ const Hero = ({ profile }) => {
             </motion.div>
         </div>
 
-      <motion.div 
-        className="scroll-indicator"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-        style={{ position: 'absolute', bottom: '2rem', right: '2rem', opacity: 1 }}
-      >
-        <div style={{ writingMode: 'vertical-rl', fontFamily: 'var(--font-heading)', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            SCROLL <FaArrowDown />
-        </div>
-      </motion.div>
+        {/* Scroll Indicator aligned with System Spine */}
+        <motion.div 
+            className="scroll-indicator"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100px' }}
+            transition={{ delay: 2, duration: 1 }}
+            style={{
+                position: 'absolute',
+                bottom: 0,
+                left: '50px', // Align with spine
+                width: '1px',
+                background: 'linear-gradient(to bottom, transparent, var(--primary-color))',
+                zIndex: 20
+            }}
+        />
     </section>
   );
 };
