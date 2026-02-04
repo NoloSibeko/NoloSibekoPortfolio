@@ -7,7 +7,7 @@ export const portfolioData = {
       phone: "062 091 2838",
       role: "Software Developer",
       profileImageUrl: profileImg,
-      description: "Motivated Software Developer with a Diploma in Information Technology and practical experience in full-stack development. | Skilled in C#, ASP.NET Core, React, and SQL Server, with a strong focus on building scalable web applications and efficient database solutions. | Passionate about solving complex problems and continuously learning new technologies to deliver high-quality software.",
+        description: "Motivated Software Developer with a Degree in Computer and Information Science and practical experience in full-stack development. | Skilled in C#, ASP.NET Core, React, and SQL Server, with a strong focus on building scalable web applications and efficient database solutions. | Passionate about solving complex problems and continuously learning new technologies to deliver high-quality software.",
       socials: {
         linkedin: "https://www.linkedin.com/in/bonolo-sibeko-b92663251",
         github: "https://github.com/NoloSibeko",
