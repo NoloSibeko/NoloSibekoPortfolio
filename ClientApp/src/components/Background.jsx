@@ -30,6 +30,10 @@ const Background = () => {
         this.size = Math.random() * 2 + 1;
         this.density = (Math.random() * 30) + 1;
         this.color = 'rgba(204, 255, 0, 0.2)'; // Volt color, low opacity
+        // Drifting properties
+        this.angle = Math.random() * Math.PI * 2;
+        this.driftSpeed = Math.random() * 0.02 + 0.005;
+        this.driftRadius = Math.random() * 20 + 5;
       }
 
       draw() {
@@ -41,6 +45,15 @@ const Background = () => {
       }
 
       update() {
+        // Continuous drift
+        this.angle += this.driftSpeed;
+        const driftX = Math.cos(this.angle) * this.driftRadius;
+        const driftY = Math.sin(this.angle) * this.driftRadius;
+        
+        // Target position (Base + Drift)
+        const targetX = this.baseX + driftX;
+        const targetY = this.baseY + driftY;
+
         let dx = mouse.x - this.x;
         let dy = mouse.y - this.y;
         let distance = Math.sqrt(dx * dx + dy * dy);
@@ -55,13 +68,14 @@ const Background = () => {
           this.x -= directionX;
           this.y -= directionY;
         } else {
-          if (this.x !== this.baseX) {
-            let dx = this.x - this.baseX;
-            this.x -= dx / 10;
+          // Return to target (drifting) position instead of fixed base
+          if (this.x !== targetX) {
+            let dx = this.x - targetX;
+            this.x -= dx / 20; // Smoother return
           }
-          if (this.y !== this.baseY) {
-            let dy = this.y - this.baseY;
-            this.y -= dy / 10;
+          if (this.y !== targetY) {
+            let dy = this.y - targetY;
+            this.y -= dy / 20;
           }
         }
       }

@@ -227,8 +227,8 @@ h1, h2, h3 {
 
 .profile-frame {
     position: relative;
-    width: 300px; /* Increased size for Desktop */
-    height: 360px; /* Increased size for Desktop */
+    width: 260px; /* Reduced size for Desktop */
+    height: 310px; /* Reduced size for Desktop */
     z-index: 10;
     perspective: 1000px;
 }
@@ -324,11 +324,12 @@ h1, h2, h3 {
     }
 
     .experience-section, .skills-section {
-        padding: 0 1rem 4rem 1rem; /* Reduced padding for mobile */
+        padding: 0 0.5rem 4rem 0.5rem; /* Further reduced padding for mobile */
     }
 
     .experience-grid {
         grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 1.5rem;
     }
 
     .system-spine {
@@ -399,6 +400,17 @@ h1, h2, h3 {
     cursor: pointer;
     font-size: 0.8rem;
     text-transform: uppercase;
+    outline: none;
+}
+
+.contact-item:visited {
+    color: var(--primary-color);
+}
+
+.contact-item:active, .contact-item:focus {
+    background: rgba(0, 255, 65, 0.15) !important;
+    color: var(--primary-color) !important;
+    outline: none;
 }
 
 .contact-item.highlight {
