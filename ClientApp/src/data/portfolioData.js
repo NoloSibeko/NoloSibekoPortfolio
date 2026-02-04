@@ -10,12 +10,13 @@ export const portfolioData = {
         description: "Software Engineer with a BSc in Computer & Information Science, specializing in high-performance full-stack architectures. | I build mission-critical solutions using C#, ASP.NET Core, and React, engineering robust backends that drive fluid, responsive interfaces. | Expert in SQL Server optimization and scalable system design, I bridge the gap between complex data logic and user experience. | I don't just write code; I engineer reliable, efficient, and scalable software ecosystems designed for impact.",
       socials: {
         linkedin: "https://www.linkedin.com/in/bonolo-sibeko-b92663251",
-        github: "https://github.com/NoloSibeko"
+        github: "https://github.com/NoloSibeko",
+        portfolio: "https://nolosibeko-portfolio.web.app/"
       }
     },
     education: [
       { institution: "Edenglen High School", period: "2016 – 2020", description: "Matric" },
-      { institution: "Varsity College", period: "2022 – 2024", description: "Computer and Information Sciences Graduate" }
+      { institution: "Varsity College", period: "2022 – 2024", description: "Degree in Computer and Information Sciences" }
     ],
     experience: [
       {
@@ -36,27 +37,27 @@ export const portfolioData = {
     contributions: [
       { 
         title: "HR & Payroll Systems",
-        description: "Implemented payroll-related features including PAYE annualisation and YTD calculations | Designed and validated SARS-aligned payslip data structures | Built backend logic to ensure data accuracy and compliance", 
+        description: "Engineered robust payroll processing features including complex PAYE annualisation and Year-To-Date (YTD) calculations to ensure financial accuracy. | Designed and implemented SARS-compliant data structures for payslip generation, ensuring regulatory adherence. | Developed secure backend logic to handle sensitive employee financial data, optimizing for both performance and data integrity within the .NET ecosystem.", 
         projectImageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" 
       },
       { 
         title: "Leave Management System",
-        description: "Developed leave workflows including applications, approvals, balances, and role-based access | Integrated frontend interfaces with backend APIs | Ensured data integrity across user actions and approval states", 
+        description: "Built a comprehensive leave management module handling end-to-end workflows: application submission, multi-level approval processes, and real-time balance tracking. | Created role-based access controls (RBAC) to ensure appropriate data visibility for employees, managers, and HR admins. | Seamlessly integrated React frontend components with ASP.NET Core APIs to provide instant feedback and state updates during complex approval chains.", 
         projectImageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
       },
       { 
         title: "Learner & Program Management",
-        description: "Worked on learner enrollment, program stages, budgeting, and tracking features | Built administrative tools for managing program data | Supported reporting and operational visibility", 
+        description: "Developed key modules for learner enrollment, program stage tracking, and budget management, facilitating the administration of large-scale educational programs. | Implemented administrative dashboards for monitoring program health and learner progress. | Enhanced operational visibility through custom reporting tools, enabling stakeholders to track budget utilization and program milestones effectively.", 
         projectImageUrl: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop" 
       },
       { 
         title: "Kiosk-Based Systems",
-        description: "Contributed to controlled-access systems with defined user flows | Focused on stability, validation, and operational correctness", 
+        description: "Contributed to the development of secure, controlled-access kiosk applications with strictly defined user flows to prevent unauthorized usage. | Focused on system stability and input validation to handle high-volume public interaction without failure. | Implemented hardware integration points and ensured operational correctness in resource-constrained environments.", 
         projectImageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop" 
       },
       { 
         title: "Live Projects",
-        description: "Notable projects: https://academy.connecthr.co.za and https://www.connecthr.co.za/ (Live)", 
+        description: "Actively contributing to live enterprise production environments. | Key platforms include 'Academy' (https://academy.connecthr.co.za) for educational management and 'ConnectHR' (https://www.connecthr.co.za/) for comprehensive HR solutions. | Responsible for ongoing feature enhancements, bug fixes, and performance optimizations in a live CI/CD environment.", 
         links: ["https://academy.connecthr.co.za", "https://www.connecthr.co.za/"], 
         projectImageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&w=800&q=80" 
       }

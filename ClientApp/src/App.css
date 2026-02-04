@@ -155,8 +155,6 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Keep internal items aligned left relative to container? */
-    /* Actually, we want the hero-header to be centered. */
     align-items: center;
     width: 100%;
     max-width: 1400px;
@@ -171,12 +169,13 @@ h1, h2, h3 {
     width: 100%;
     justify-content: center; /* Center the group */
     margin-bottom: 0.5rem; /* Reduced margin */
-    transform: translateY(-120px); /* Lift the whole aligned group up towards the top */
+    /* Removed transforms to align naturally */
 }
 
 .hero-text-side {
     text-align: left;
     flex: 0 0 auto; /* Don't stretch */
+    /* Removed individual transforms */
 }
 
 .hero-image-side {
@@ -187,6 +186,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Removed individual transforms */
 }
 
 .hero-title {
@@ -285,19 +285,80 @@ h1, h2, h3 {
 /* Mobile Response */
 @media (max-width: 1024px) {
   .hero-header {
-      flex-direction: column; 
-      gap: 2rem;
+      flex-direction: column-reverse; /* Stack image on top of text or vice-versa? usually image top or text top. User said "place picture and hero to be in same row" for PC. For mobile, column is best. */
+      gap: 3rem;
       align-items: center; /* Center items on mobile */
       text-align: center;
+      margin-top: 2rem;
   }
   
   .hero-text-side {
       text-align: center;
       align-items: center;
+      width: 100%;
+  }
+
+  .hero-image-side {
+      width: 100%;
+      margin-bottom: 1rem;
   }
   
   .hero-title {
-      font-size: clamp(3rem, 10vw, 5rem);
+      font-size: clamp(2.5rem, 10vw, 4rem);
+      line-height: 1;
+  }
+
+  .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+  }
+
+  .profile-frame {
+      width: 180px;
+      height: 220px;
+  }
+
+  .hero-description-container {
+      padding: 0 1rem;
+      font-size: 0.9rem;
+  }
+
+  .experience-section, .skills-section {
+      padding: 0 1.5rem 4rem 1.5rem; /* Remove huge left padding */
+  }
+
+  .system-spine {
+      display: none; /* Hide spine on mobile */
+  }
+
+  .skills-wrapper {
+      grid-template-columns: repeat(2, 1fr) !important; /* 2 cols on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+    .skills-wrapper {
+        grid-template-columns: 1fr !important; /* 1 col on mobile */
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .contact-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
   }
   
   .profile-frame {

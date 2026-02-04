@@ -60,6 +60,19 @@ export const generateResume = (data) => {
   const githubWidth = doc.getTextWidth(githubText);
   doc.link(githubX, y - 4, githubWidth, 5, { url: data.profile.socials.github });
   
+  if (data.profile.socials.portfolio) {
+    doc.setTextColor(0);
+    doc.text(" | ", githubX + githubWidth, y);
+    const separator2Width = doc.getTextWidth(" | ");
+    
+    doc.setTextColor(0, 0, 255);
+    const portfolioText = "Portfolio";
+    const portfolioX = githubX + githubWidth + separator2Width;
+    doc.text(portfolioText, portfolioX, y);
+    const portfolioWidth = doc.getTextWidth(portfolioText);
+    doc.link(portfolioX, y - 4, portfolioWidth, 5, { url: data.profile.socials.portfolio });
+  }
+
   y += 15;
 
   // --- SUMMARY ---
