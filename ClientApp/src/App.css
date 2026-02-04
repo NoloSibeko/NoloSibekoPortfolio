@@ -230,6 +230,8 @@ h1, h2, h3 {
     height: 260px;
     z-index: 10;
     perspective: 1000px;
+    /* Physically lower the picture closer to description */
+    transform: translateY(40px);
 }
 
 .profile-caption {
@@ -246,19 +248,19 @@ h1, h2, h3 {
 
 /* Glitch Scribble Animation */
 @keyframes glitch-scribble {
-    0% { transform: translateX(-5px) skewX(-15deg) scaleY(0.9); opacity: 0.8; }
-    20% { transform: translateX(8px) skewX(15deg) scaleY(1.1); opacity: 1; }
-    40% { transform: translateX(-8px) skewX(-10deg) scaleY(0.95); opacity: 0.9; }
-    60% { transform: translateX(5px) skewX(10deg) scaleY(1.05); opacity: 0.8; }
-    80% { transform: translateX(-3px) skewX(-5deg) scaleY(1); opacity: 1; }
+    0% { transform: translateX(-3px) skewX(-20deg) scaleY(0.9); opacity: 0.8; }
+    20% { transform: translateX(4px) skewX(20deg) scaleY(1.1); opacity: 1; }
+    40% { transform: translateX(-4px) skewX(-15deg) scaleY(0.95); opacity: 0.9; }
+    60% { transform: translateX(3px) skewX(15deg) scaleY(1.05); opacity: 0.8; }
+    80% { transform: translateX(-2px) skewX(-10deg) scaleY(1); opacity: 1; }
     100% { transform: translateX(0) skewX(0); opacity: 0.9; }
 }
 
 .glitch-layer {
-    animation: glitch-scribble 0.08s infinite;
+    animation: glitch-scribble 0.04s infinite; /* Faster/Aggressive */
     pointer-events: none;
     mix-blend-mode: hard-light; /* More intense overlay */
-    filter: contrast(200%) brightness(150%) hue-rotate(90deg) !important; /* Force glitch look */
+    filter: contrast(250%) brightness(150%) hue-rotate(90deg) !important; /* Force glitch look */
 }
 
 /* Hero Section Spacing Fixes */

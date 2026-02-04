@@ -150,7 +150,7 @@ const Hero = ({ profile }) => {
                                     // Use a fixed larger height for the strip (e.g., 40px)
                                     // Ensure it stays within bounds using Math.max/min if needed, 
                                     // or let clip-path handle the cropping naturally.
-                                    clipPath: `inset(${Math.max(0, glitchY - 25)}px 0 ${Math.max(0, 260 - (glitchY + 25))}px 0)`,
+                                    clipPath: `inset(${Math.max(0, glitchY - 10)}px 0 ${Math.max(0, 260 - (glitchY + 10))}px 0)`,
                                     zIndex: 20,
                                     opacity: 1
                                 }} 
