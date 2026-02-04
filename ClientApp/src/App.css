@@ -230,8 +230,6 @@ h1, h2, h3 {
     height: 260px;
     z-index: 10;
     perspective: 1000px;
-    /* Physically lower the picture closer to description */
-    transform: translateY(40px);
 }
 
 .profile-caption {
@@ -272,6 +270,7 @@ h1, h2, h3 {
     width: 100%;
     justify-content: center; /* Center the group */
     margin-bottom: 0.5rem; /* Reduced margin */
+    transform: translateY(40px); /* Move whole group down close to description */
 }
 
 .hero-subtitle {
