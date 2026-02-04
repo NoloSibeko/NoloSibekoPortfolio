@@ -230,6 +230,8 @@ h1, h2, h3 {
     height: 260px;
     z-index: 10;
     perspective: 1000px;
+    /* Push the image down to align its bottom with the text baseline/red line */
+    transform: translateY(45px);
 }
 
 .profile-caption {
