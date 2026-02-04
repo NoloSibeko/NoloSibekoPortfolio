@@ -176,6 +176,8 @@ h1, h2, h3 {
 .hero-text-side {
     text-align: left;
     flex: 0 0 auto; /* Don't stretch */
+    /* Move text higher towards top of screen */
+    transform: translateY(-150px);
 }
 
 .hero-image-side {
@@ -186,6 +188,8 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Keep image low where it was (approx 85px down from center) */
+    transform: translateY(85px);
 }
 
 .hero-title {
@@ -265,12 +269,11 @@ h1, h2, h3 {
 .hero-header {
     display: flex;
     flex-direction: row; /* Side by side */
-    align-items: flex-end; /* Align bottoms */
+    align-items: center; /* Center alignment to allow independent movement */
     gap: 4rem;
     width: 100%;
     justify-content: center; /* Center the group */
     margin-bottom: 0.5rem; /* Reduced margin */
-    transform: translateY(85px); /* Move whole group down to match picture's red line position (40px + 45px) */
 }
 
 .hero-subtitle {
