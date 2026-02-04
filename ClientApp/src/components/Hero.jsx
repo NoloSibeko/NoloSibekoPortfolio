@@ -147,10 +147,12 @@ const Hero = ({ profile }) => {
                                     position: 'absolute',
                                     top: 0,
                                     left: 0,
-                                    clipPath: `inset(${glitchY - 15}px 0 ${260 - (glitchY + 15)}px 0)`,
+                                    // Use a fixed larger height for the strip (e.g., 40px)
+                                    // Ensure it stays within bounds using Math.max/min if needed, 
+                                    // or let clip-path handle the cropping naturally.
+                                    clipPath: `inset(${Math.max(0, glitchY - 25)}px 0 ${Math.max(0, 260 - (glitchY + 25))}px 0)`,
                                     zIndex: 20,
-                                    filter: 'grayscale(1) contrast(1.5) invert(1)',
-                                    opacity: 0.8
+                                    opacity: 1
                                 }} 
                                 onError={(e) => { e.target.style.display = 'none'; }}
                             />

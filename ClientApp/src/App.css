@@ -212,6 +212,25 @@ h1, h2, h3 {
     perspective: 1000px;
 }
 
+/* 3D Printed / Scanned Aesthetic */
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    /* High contrast grayscale for "3D printed/scanned" look, but with slight color bleed */
+    filter: grayscale(60%) contrast(120%) brightness(1.1) sepia(20%) hue-rotate(90deg);
+    transition: filter 0.5s ease;
+    pointer-events: none;
+}
+
+/* Removed green glow hover effect per request */
+.profile-frame:hover .profile-img {
+    /* Bring back more color on hover */
+    filter: grayscale(40%) contrast(125%) brightness(1.1) sepia(10%);
+}
+
 .profile-frame::after {
     content: "FIGURE 1.0 // SUBJ: BONOLO";
     position: absolute;
@@ -224,37 +243,50 @@ h1, h2, h3 {
     letter-spacing: 1px;
 }
 
-/* 3D Printed / Scanned Aesthetic */
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    /* High contrast grayscale for "3D printed/scanned" look */
-    filter: grayscale(100%) contrast(120%) brightness(1.1);
-    transition: filter 0.5s ease;
-    pointer-events: none;
-}
-
-/* Removed green glow hover effect per request */
-.profile-frame:hover .profile-img {
-    filter: grayscale(100%) contrast(120%) brightness(1.1);
-}
-
 /* Glitch Scribble Animation */
 @keyframes glitch-scribble {
-    0% { transform: translateX(-3px) skewX(-10deg); }
-    25% { transform: translateX(4px) skewX(10deg); }
-    50% { transform: translateX(-5px) skewX(-5deg); }
-    75% { transform: translateX(3px) skewX(5deg); }
-    100% { transform: translateX(-3px) skewX(-10deg); }
+    0% { transform: translateX(-5px) skewX(-15deg) scaleY(0.9); opacity: 0.8; }
+    20% { transform: translateX(8px) skewX(15deg) scaleY(1.1); opacity: 1; }
+    40% { transform: translateX(-8px) skewX(-10deg) scaleY(0.95); opacity: 0.9; }
+    60% { transform: translateX(5px) skewX(10deg) scaleY(1.05); opacity: 0.8; }
+    80% { transform: translateX(-3px) skewX(-5deg) scaleY(1); opacity: 1; }
+    100% { transform: translateX(0) skewX(0); opacity: 0.9; }
 }
 
 .glitch-layer {
-    animation: glitch-scribble 0.05s infinite;
+    animation: glitch-scribble 0.08s infinite;
     pointer-events: none;
-    mix-blend-mode: exclusion; /* Makes it look inverted/techy */
+    mix-blend-mode: hard-light; /* More intense overlay */
+    filter: contrast(200%) brightness(150%) hue-rotate(90deg) !important; /* Force glitch look */
+}
+
+/* Hero Section Spacing Fixes */
+.hero-header {
+    display: flex;
+    flex-direction: row; /* Side by side */
+    align-items: flex-end; /* Align bottoms */
+    gap: 4rem;
+    width: 100%;
+    justify-content: center; /* Center the group */
+    margin-bottom: 0.5rem; /* Reduced margin */
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-family: var(--font-mono);
+  color: var(--primary-color);
+  margin-top: 0.5rem; /* Reduced margin */
+  margin-bottom: 1rem; /* Reduced margin */
+}
+
+.hero-description-container {
+  max-width: 800px;
+  margin: 1rem auto 2rem; /* Reduced top margin */
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
 }
 
 /* Mobile Response */
