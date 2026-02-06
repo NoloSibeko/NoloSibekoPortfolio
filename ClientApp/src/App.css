@@ -351,7 +351,9 @@ h1, h2, h3 {
     }
 
     .section-title {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 10vw, 3rem); /* Smaller on mobile */
+        margin-bottom: 2rem;
+        text-align: right; /* Align headings to the right as requested */
     }
 
     .contact-group {
@@ -367,6 +369,39 @@ h1, h2, h3 {
     .profile-frame {
         width: 140px;
         height: 160px;
+    }
+
+    .profile-caption {
+        width: 100%;
+        text-align: center;
+        right: auto;
+        left: 0;
+        bottom: -30px;
+    }
+
+    .experience-section,
+    .skills-section,
+    .achievements-section {
+        padding: 3rem 1.5rem; /* Increased side padding to prevent cutoff */
+    }
+
+    .exp-card, .achievement-card {
+        text-align: right; /* Align card content to the right */
+    }
+    
+    .exp-header {
+        flex-direction: row-reverse; /* Flip header layout for right alignment */
+    }
+    
+    .project-links {
+        justify-content: flex-end; /* Align links to right */
+    }
+
+    .experience-container {
+        margin-left: 0;
+        padding-left: 0; /* Removed left padding */
+        border-left-width: 0;
+        width: 100%;
     }
 }
 

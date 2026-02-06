@@ -132,8 +132,8 @@ const Skills = ({ skills }) => {
       ))}
 
       <motion.div ref={headerRef} style={{ x: xTitle }}>
-          <h2 className="section-title glitch" data-text="TECHNICAL ARSENAL">
-            <DecryptText text="TECHNICAL ARSENAL" />
+          <h2 className="section-title glitch" data-text="TECHNICAL SKILLS">
+            <DecryptText text="TECHNICAL SKILLS" />
           </h2>
       </motion.div>
 

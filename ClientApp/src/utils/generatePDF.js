@@ -147,11 +147,11 @@ export const generateResume = (data) => {
   });
   y += 5;
 
-  // --- TECHNICAL ARSENAL ---
+  // --- TECHNICAL SKILLS ---
   checkPageBreak(60);
   doc.setFontSize(12);
   doc.setFont("helvetica", "bold");
-  doc.text("TECHNICAL ARSENAL", margin, y);
+  doc.text("TECHNICAL SKILLS", margin, y);
   y += 8;
   doc.line(margin, y - 5, pageWidth - margin, y - 5);
 

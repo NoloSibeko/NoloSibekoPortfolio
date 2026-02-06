@@ -7,7 +7,7 @@ export const portfolioData = {
       phone: "062 091 2838",
       role: "Software Developer",
       profileImageUrl: profileImg,
-        description: "Software Engineer with a BSc in Computer & Information Science, specializing in high-performance full-stack architectures. | I build mission-critical solutions using C#, ASP.NET Core, and React, engineering robust backends that drive fluid, responsive interfaces. | Expert in SQL Server optimization and scalable system design, I bridge the gap between complex data logic and user experience. | I don't just write code; I engineer reliable, efficient, and scalable software ecosystems designed for impact.",
+        description: "Software Engineer with a BSc in Computer & Information Science, specializing in full-stack development. | I build scalable solutions using C#, ASP.NET Core, and React, developing robust backends that drive fluid, responsive interfaces. | Proficient in SQL Server optimization and system design, I bridge the gap between data logic and user experience. | I focus on writing reliable, efficient, and maintainable software.",
       socials: {
         linkedin: "https://www.linkedin.com/in/bonolo-sibeko-b92663251",
         github: "https://github.com/NoloSibeko",
@@ -37,12 +37,12 @@ export const portfolioData = {
     contributions: [
       { 
         title: "HR & Payroll Systems",
-        description: "Engineered robust payroll processing features including complex PAYE annualisation and Year-To-Date (YTD) calculations to ensure financial accuracy. | Designed and implemented SARS-compliant data structures for payslip generation, ensuring regulatory adherence. | Developed secure backend logic to handle sensitive employee financial data, optimizing for both performance and data integrity within the .NET ecosystem.", 
+        description: "Implemented robust payroll processing features including PAYE annualisation and Year-To-Date (YTD) calculations to ensure financial accuracy. | Implemented SARS-compliant data structures for payslip generation, ensuring regulatory adherence. | Developed secure backend logic to handle sensitive employee financial data, optimizing for performance and data integrity.", 
         projectImageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop" 
       },
       { 
         title: "Leave Management System",
-        description: "Built a comprehensive leave management module handling end-to-end workflows: application submission, multi-level approval processes, and real-time balance tracking. | Created role-based access controls (RBAC) to ensure appropriate data visibility for employees, managers, and HR admins. | Seamlessly integrated React frontend components with ASP.NET Core APIs to provide instant feedback and state updates during complex approval chains.", 
+        description: "Developed a comprehensive leave management module handling end-to-end workflows: application submission, approval processes, and balance tracking. | Implemented role-based access controls (RBAC) to ensure data visibility for employees, managers, and HR admins. | Integrated React frontend components with ASP.NET Core APIs to provide instant feedback during approval chains.", 
         projectImageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
       },
       { 
