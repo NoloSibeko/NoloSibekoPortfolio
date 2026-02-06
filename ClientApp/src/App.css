@@ -344,6 +344,22 @@ h1, h2, h3 {
 @media (max-width: 600px) {
     .skills-wrapper {
         grid-template-columns: 1fr !important; /* 1 col on mobile */
+        padding: 0 !important; /* Remove wrapper padding to allow cards to span more */
+        gap: 1.5rem;
+    }
+
+    .skills-category {
+        padding: 1rem; /* Reduce internal padding */
+    }
+
+    .cat-title {
+        font-size: 1.2rem; /* Smaller font for mobile titles */
+        margin-bottom: 1.5rem;
+    }
+    
+    .cat-title span {
+        font-size: 1.2em !important; /* Adjust icon size */
+        margin-right: 0.5rem !important;
     }
 
     .hero-title {
