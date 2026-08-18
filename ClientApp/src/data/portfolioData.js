@@ -16,22 +16,33 @@ export const portfolioData = {
     },
     education: [
       { institution: "Edenglen High School", period: "2016 – 2020", description: "Matric" },
-      { institution: "Varsity College", period: "2022 – 2024", description: "Degree in Computer and Information Sciences" }
+      { institution: "Varsity College", period: "2022 – 2024", description: "Degree in Computer and Information Sciences" },
+      { institution: "Aarhus University", period: "2026", description: "Specialized Program in Digital Banking & Financial Technology" }
     ],
     experience: [
       {
-        role: "Software Development Learnership",
-        company: "Singular Systems",
-        period: "2025 – Current",
-        companyLogoUrl: "https://ui-avatars.com/api/?name=Singular+Systems&background=00ccff&color=fff&rounded=true&bold=true",
-        backgroundImageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
-      },
-      {
-        role: "Junior Software Developer",
+        role: "Software Developer",
         company: "Skills Panda",
-        period: "",
+        period: "Mar 2026 – Current",
+        description: "Full-stack software development role delivering production-ready features across enterprise HR and educational management platforms. | Developing and maintaining ASP.NET Core backend APIs with C#, implementing secure business logic, authentication flows, and role-based access controls. | Building responsive React frontend components that integrate seamlessly with backend systems, ensuring smooth user experiences across ConnectHR and Academy platforms. | Contributing to live CI/CD environments with ongoing feature enhancements, performance optimizations, and bug resolutions. | Collaborating directly with cross-functional teams to deliver features aligned with business requirements and regulatory standards.",
         companyLogoUrl: "https://ui-avatars.com/api/?name=Skills+Panda&background=ff0055&color=fff&rounded=true&bold=true",
         backgroundImageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        role: "Specialized Program in Digital Banking & Financial Technology",
+        company: "Aarhus University",
+        period: "2026",
+        description: "Advanced program covering digital banking infrastructure, financial technology systems, payment platforms, regulatory frameworks, and emerging fintech innovations including open banking, digital lending, and financial data security. | Equipped with specialized domain knowledge in banking technology architectures, compliance standards, and the integration of software solutions within financial services ecosystems.",
+        companyLogoUrl: "https://ui-avatars.com/api/?name=Aarhus+University&background=0066cc&color=fff&rounded=true&bold=true",
+        backgroundImageUrl: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&q=80&w=1000"
+      },
+      {
+        role: "Software Development Learnership",
+        company: "Singular Systems",
+        period: "Mar 2025 – Mar 2026",
+        description: "Structured 12-month learnership program gaining hands-on full-stack development experience across multiple enterprise systems. | Contributed to HR & Payroll modules implementing PAYE annualisation, YTD calculations, and SARS-compliant payslip generation using C# and ASP.NET Core. | Built Leave Management workflows with role-based approval chains, integrating React frontends with RESTful APIs for real-time status updates. | Developed Learner & Program Management features including enrollment tracking, budget monitoring, and administrative reporting dashboards. | Gained exposure to kiosk-based secure access systems with input validation and hardware integration in resource-constrained environments. | Worked within an agile CI/CD pipeline delivering code to live production platforms including ConnectHR and the Academy system.",
+        companyLogoUrl: "https://ui-avatars.com/api/?name=Singular+Systems&background=00ccff&color=fff&rounded=true&bold=true",
+        backgroundImageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
       }
     ],
     contributions: [
@@ -100,6 +111,12 @@ export const portfolioData = {
       { name: "Leave Management", category: "Domain" },
       { name: "Learner Management", category: "Domain" },
       { name: "Kiosk Systems", category: "Domain" },
+      { name: "Digital Banking Infrastructure", category: "Domain" },
+      { name: "Financial Technology (FinTech)", category: "Domain" },
+      { name: "Payment Platforms & Processing", category: "Domain" },
+      { name: "Open Banking & API Standards", category: "Domain" },
+      { name: "Financial Regulatory Compliance", category: "Domain" },
+      { name: "Financial Data Security", category: "Domain" },
 
       // Architecture
       { name: "MVC Architecture", category: "Architecture" },

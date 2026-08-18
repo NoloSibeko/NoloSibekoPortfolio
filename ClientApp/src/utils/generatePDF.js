@@ -129,7 +129,7 @@ export const generateResume = (data) => {
   doc.line(margin, y - 5, pageWidth - margin, y - 5);
 
   data.experience.forEach(exp => {
-    checkPageBreak(30);
+    checkPageBreak(40);
     doc.setFontSize(11);
     doc.setFont("helvetica", "bold");
     doc.text(exp.role, margin, y);
@@ -141,9 +141,21 @@ export const generateResume = (data) => {
     doc.text(dateStr, pageWidth - margin - dateWidth, y);
     y += 5;
     
-    doc.setFont("helvetica", "bold"); // Company bold
-    doc.text(exp.company, margin, y);
-    y += 10;
+    doc.setFont("helvetica", "bold");
+    doc.text(exp.company || exp.institution, margin, y);
+    y += 7;
+    
+    if (exp.description) {
+      checkPageBreak(20);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      const cleanExpDesc = exp.description.replace(/\|/g, "•");
+      const splitExp = doc.splitTextToSize(cleanExpDesc, contentWidth);
+      doc.text(splitExp, margin, y);
+      y += (splitExp.length * 5) + 6;
+    } else {
+      y += 5;
+    }
   });
   y += 5;
 
@@ -155,7 +167,7 @@ export const generateResume = (data) => {
   y += 8;
   doc.line(margin, y - 5, pageWidth - margin, y - 5);
 
-  const categories = ["Language", "Backend", "Frontend", "Database", "Tool", "Architecture"];
+  const categories = ["Language", "Backend", "Frontend", "Database", "Tool", "Domain", "Architecture"];
   
   categories.forEach(cat => {
     const skills = data.skills.filter(s => s.category === cat).map(s => s.name).join(", ");
@@ -173,6 +185,26 @@ export const generateResume = (data) => {
     }
   });
   y += 10;
+
+  // --- ACHIEVEMENTS ---
+  if (data.achievements && data.achievements.length > 0) {
+    checkPageBreak(40);
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.text("ACHIEVEMENTS & LEADERSHIP", margin, y);
+    y += 8;
+    doc.line(margin, y - 5, pageWidth - margin, y - 5);
+
+    data.achievements.forEach(achievement => {
+      checkPageBreak(15);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      const splitAchievement = doc.splitTextToSize("• " + achievement.description, contentWidth);
+      doc.text(splitAchievement, margin, y);
+      y += (splitAchievement.length * 5) + 4;
+    });
+    y += 6;
+  }
 
   // --- KEY PROJECTS ---
   checkPageBreak(40);
